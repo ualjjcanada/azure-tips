@@ -1,0 +1,41 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Selenium end-to-end testing
+:doctype: book
+:icons: font
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips. Mover recursos entre suscripciones
+
+Herramientas y Métodos en Ingeniería del Software
+Version 1.0, Junio-2020.
+Joaquín Cañadas <jjcanada@ual.es>
+
+// Entrar en modo no numerado de apartados
+:numbered!: 
+
+[abstract]
+////
+COLOCA A CONTINUACIÓN EL RESUMEN
+////
+Si el saldo de tu suscripción Azure para Estudiantes está agotándose, es recomendable que muevas tus grupos de recursos a otra suscripción antes de que el saldo se agote. Puedes usar como destino de tus recursos la suscripción de un compañero de equipo o una suscripción que te cree el profesor. 

@@ -1,0 +1,38 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Selenium end-to-end testing
+:doctype: book
+:icons: font
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes
+
+
+. link:crear-suscripcion-AzureParaEstudiantes.html[Creación de la suscripción Azure para Estudiantes]
+
+. link:revisar-saldo-AzureParaEstudiantes.html[Revisar el saldo de la suscripción Azure para Estudiantes]
+
+. link:agregar-administrador.html[Agregar o cambiar los administradores de la suscripción de Azure]
+
+. link:mover-grupos-recursos-entre-suscripciones.html[Mover los grupos de recursos de una suscripción a otra]
+
