@@ -38,6 +38,53 @@ Joaquín Cañadas <jjcanada@ual.es>
 ////
 COLOCA A CONTINUACIÓN EL RESUMEN
 ////
+
+== Introducción
+
 Puede ser muy útil que agregues al profesor o a tu compañero de equipo como administrador de tu suscripción Azure para Estudiantes. Así este podrá, por ejemplo, iniciar o detener las máquinas virtuales creadas por tí en tu suscripción cuando sea necesario, y evitar gasto innecesario del saldo. 
 
+== Añadir administrador mediante roles
+
+. Inicia sesión en Azure Portal como administrador de la suscripción y abre https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade[Suscripciones].
+
+. Haz clic en la suscripción a la que quieres conceder acceso.
+
+. Haz clic en Control de acceso (IAM).
+
+. Haz clic en la pestaña Asignaciones de roles para ver todas las asignaciones de roles para esta suscripción.
+
+.Asignación de roles
+image::https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/media/add-change-subscription-administrator/role-assignments.png[role="thumb", align="center"]
+
+[start=5]
+
+. Haz clic en menu:Agregar[Agregar asignación de roles] para abrir el panel.
+
+. Si no tiene permisos para asignar roles, la opción se deshabilitará.
+
+. En la lista desplegable *Rol*, seleccione el rol *Propietario*.
+
+. En la lista Seleccionar, selecciona un usuario (para el profesor: jjcanada@ual.es). Si no ve el usuario en la lista, puede escribir en el cuadro Seleccionar para buscar nombres para mostrar y direcciones de correo electrónico en el directorio.
+
+. Haga clic en Guardar para asignar el rol.
+
+Transcurridos unos instantes, al usuario se le asigna el rol Propietario en el ámbito de la suscripción.
+
+== Añadir un coadministrador 
+
+Microsoft recomienda que administres el acceso a los recursos mediante roles, como acabamos de ver. No obstante, existe un segundo método que se describe a continuación que añade un coadministrador clásico. Este segundo método es útil si todavía usas el modelo de implementación clásico y administras los recursos clásicos mediante el módulo de PowerShell de Azure Service Management.
+
+Los pasos se muestran en esta figura:
+
+.Añadir a un coadministrador
+image::añadir-profesor-a-subscripcion-Azure.gif[role="thumb", align="center"]
+
+
+****
+Más información
+
+* https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/add-change-subscription-administrator[Agregar o cambiar los administradores de la suscripción de Azure]
+
+* https://docs.microsoft.com/es-es/azure/role-based-access-control/classic-administrators[Administradores de la suscripción clásica de Azure]
+****
 

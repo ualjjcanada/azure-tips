@@ -38,4 +38,61 @@ Joaquín Cañadas <jjcanada@ual.es>
 ////
 COLOCA A CONTINUACIÓN EL RESUMEN
 ////
-Si el saldo de tu suscripción Azure para Estudiantes está agotándose, es recomendable que muevas tus grupos de recursos a otra suscripción antes de que el saldo se agote. Puedes usar como destino de tus recursos la suscripción de un compañero de equipo o una suscripción que te cree el profesor. 
+
+== Introducción
+Si el saldo de tu suscripción Azure para Estudiantes está agotándose, es recomendable que muevas tus grupos de recursos a otra suscripción antes de que el saldo se agote. Puedes usar como destino de tus recursos la suscripción de un compañero de equipo o una nueva suscripción con crédito que te cree el profesor. 
+
+
+== Mover recursos en el Portal Azure
+
+Mover los grupos de recursos de una suscripción a otra es muy sencillo. Aquí hay unas instrucciones básicas:
+
+. Revisa tus suscripciones. Debes tener al menos dos suscripciones: la suscripción Azure para Estudiantes donde están los grupos de recursos que no quieres perder, y otra suscripción con crédito que será el destino de tus grupos de recursos.
+
+.Suscripciones
+image::todos-los-servicios-suscripciones.png[role="thumb", align="center"]
+
+* Si el destino es la suscripción de un compañero, para poder ver su suscripción pídele antes que te link:agregar-administrador.html[agregue como administrador de su suscripción]
+
+* Si el destino es una nueva suscripción creada por el profesor, deberás visualizarla en tu lista de suscripciones antes de poder continuar.
+
+[start=2]
+. Selecciona _Grupos de Recursos_, y el grupo de recurso que quiere mover.
+
+.Listado de grupos de recursos de la suscripción
+image::suscripcion-grupo-recursos.png[role="thumb", align="center"]
+
+[start=3]
+. A continuación, haz clic en Mover, y selecciona _Mover a otra suscripción_
+
+.Mover grupo de recursos
+image::grupo-recursos-mover.png[role="thumb", align="center"]
+
+.Mover a otra suscripción
+image::https://docs.microsoft.com/es-es/azure/azure-resource-manager/management/media/move-resource-group-and-subscription/select-move.png[role="thumb", align="center"]
+
+[start=4]
+. Selecciona los recursos a trasladar (todos) y la suscripción de destino. Elige un grupo de recursos de destino o introduce el nombre de uno nuevo (recomendado). Si aun no existe ningún grupo de recursos en la suscripción de destino la única opción permitida será crear un grupo de recursos nuevo.
+Confirma que tiene que actualizar los scripts para estos recursos y selecciona Aceptar.
+
+.Mover a otra suscripción
+image::mover-grupo-recursos-nueva-suscripcion.png[role="thumb", align="center"]
+
+[start=5]
+
+. Tras unos segundos de validación, si todo es correcto, los recursos se irán moviendo a la suscripción de destino. 
+
+. Por último, cuando aparezca la notificación de que los recursos se han movido correctamente, inícialos para verificar su correcto funcionamiento.
+
+
+.Notificación
+image::notificacion-movidos-correctamente.png[role="thumb", align="center"]
+
+
+
+****
+Más información: 
+
+- https://docs.microsoft.com/es-es/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal[Traslado de los recursos a una nueva suscripción]
+
+****

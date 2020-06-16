@@ -38,3 +38,18 @@ Joaquín Cañadas <jjcanada@ual.es>
 ////
 COLOCA A CONTINUACIÓN EL RESUMEN
 ////
+
+Cómo obtener una suscripción de Microsoft Azure para Estudiantes
+
+
+== En desarrollo...
+
+== Ten en cuenta
+
+* *¿Qué es necesario para suscribirse?* Durante el proceso debes proporcionar un número de teléfono (recibirás un SMS) y tu dirección de correo electrónico de la Universidad de Almería (por ejemplo, abc123@inlumine.ual.es) .
+
+****
+Más información
+
+- https://azure.microsoft.com/es-es/free/free-account-students-faq/[Preguntas más frecuentes de Azure para estudiantes]
+****

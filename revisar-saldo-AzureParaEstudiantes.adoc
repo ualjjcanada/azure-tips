@@ -38,3 +38,47 @@ Joaquín Cañadas <jjcanada@ual.es>
 ////
 COLOCA A CONTINUACIÓN EL RESUMEN
 ////
+Es importante que revises regularmente el saldo restante en tu suscripción Azure para Estudiantes. La suscripción incluye 12 meses de uso de un conjunto de recursos gratuitos, pero si agotas el saldo, la suscripción se desactiva perdiendo los recursos gratuitos. 
+
+== Introducción 
+
+La cuenta de Azure for Students te ofrece 100 USD de crédito y una cantidad limitada de servicios gratuitos durante 12 meses. Cuando hayas agotado el crédito disponible o hayan transcurrido 12 meses, se deshabilitará tu suscripción de Azure. 
+
+== Revisar el saldo
+
+Puedes comprobar el crédito que te queda en el https://www.microsoftazuresponsorships.com/balance[portal de Patrocinio de Microsoft Azure].
+
+. Inicia sesión con las credenciales de tu cuenta de Azure for Students.
+
+. La página de saldo brinda información sobre el crédito que has usado y el crédito que te queda. Puedes encontrar la fecha de expiración del crédito debajo de gráfico del crédito.
+
+image::https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/media/azurestudents-subscription-disabled/azurestudents-credit-balance.png[credito restante]
+
+[start=3]
+
+. Para comprobar el uso de los servicios que consumen el crédito de Azure, selecciona Usage (Uso) en el menú de navegación de la izquierda y, luego, selecciona la suscripción a Azure for Students.
+
+image::https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/media/azurestudents-subscription-disabled/azurestudents-credit-usage.png[uso de los servicios]
+
+== El crédito está a punto de agotarse
+
+Si aun no has finalizado la asignatura y el crédito está a punto de agotarse, debes contactar con tu profesor para que te cree una nueva suscripción con crédito. 
+
+Tras ello, deberás mover-grupos-recursos-entre-suscripciones.html[mover los grupos de recursos a la nueva suscripción] para evitar que se agote todo el saldo de tu suscripción Azure para Estudiantes. 
+
+[IMPORTANT]
+*ES MUY IMPORTANTE* hacer esto *ANTES* de que *EL SALDO QUEDE A CERO*, porque en ese caso la suscripción se bloquea y ya no se pueden mover los grupos de recursos. Hay que escribir a soporte para que la reactiven, y tardan en solucionarlo.
+
+== El crédito se agotó
+
+Si aun no has finalizado la asignatura y el crédito está a punto de agotarse, debes contactar con tu profesor para que te reactiven temporalmente la suscripción y puedas link:mover-grupos-recursos-entre-suscripciones.html[mover los recursos una nueva suscripción] con crédito. 
+
+== El crédito expiró
+
+El crédito de Azure for Students expira a los 12 meses de la creación de la suscripción. Una vez que el crédito expira, Azure deshabilita la suscripción. Si transcurren los doce meses y continuas siendo un estudiante, _se supone_ que podrás renovar tu oferta Azure for Students. Si ya no eres estudiante, puedes cambiar a una suscripción de Pago por uso: debes ponerte en contacto con  https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade[Soporte técnico de Azure] para actualizar la suscripción a una suscripción de pago por uso. Tras ello, Azure te cobrará tarifas de pago por uso por cualquier servicio que uses.
+
+****
+Más información
+
+- https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/azurestudents-subscription-disabled#youve-used-all-of-your-credit[¿Por qué está deshabilitada mi suscripción a Azure for Students y cómo reactivarla?]
+****

@@ -438,9 +438,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="book">
+<body class="book toc2 toc-right">
 <div id="header">
 <h1>Azure Tips. Mover recursos entre suscripciones</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Tabla de contenidos</div>
+<ul class="sectlevel1">
+<li><a href="#_introducción">Introducción</a></li>
+<li><a href="#_mover_recursos_en_el_portal_azure">Mover recursos en el Portal Azure</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
@@ -450,17 +457,127 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 Version 1.0, Junio-2020.
 Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</p>
 </div>
-<div class="quoteblock abstract">
-<blockquote>
-Si el saldo de tu suscripción Azure para Estudiantes está agotándose, es recomendable que muevas tus grupos de recursos a otra suscripción antes de que el saldo se agote. Puedes usar como destino de tus recursos la suscripción de un compañero de equipo o una suscripción que te cree el profesor.
-</blockquote>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introducción">Introducción</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si el saldo de tu suscripción Azure para Estudiantes está agotándose, es recomendable que muevas tus grupos de recursos a otra suscripción antes de que el saldo se agote. Puedes usar como destino de tus recursos la suscripción de un compañero de equipo o una nueva suscripción con crédito que te cree el profesor.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mover_recursos_en_el_portal_azure">Mover recursos en el Portal Azure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mover los grupos de recursos de una suscripción a otra es muy sencillo. Aquí hay unas instrucciones básicas:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Revisa tus suscripciones. Debes tener al menos dos suscripciones: la suscripción Azure para Estudiantes donde están los grupos de recursos que no quieres perder, y otra suscripción con crédito que será el destino de tus grupos de recursos.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/todos-los-servicios-suscripciones.png" alt="todos los servicios suscripciones">
+</div>
+<div class="title">Fig. 1. Suscripciones</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Si el destino es la suscripción de un compañero, para poder ver su suscripción pídele antes que te <a href="agregar-administrador.html">agregue como administrador de su suscripción</a></p>
+</li>
+<li>
+<p>Si el destino es una nueva suscripción creada por el profesor, deberás visualizarla en tu lista de suscripciones antes de poder continuar.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Selecciona <em>Grupos de Recursos</em>, y el grupo de recurso que quiere mover.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/suscripcion-grupo-recursos.png" alt="suscripcion grupo recursos">
+</div>
+<div class="title">Fig. 2. Listado de grupos de recursos de la suscripción</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>A continuación, haz clic en Mover, y selecciona <em>Mover a otra suscripción</em></p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/grupo-recursos-mover.png" alt="grupo recursos mover">
+</div>
+<div class="title">Fig. 3. Mover grupo de recursos</div>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="https://docs.microsoft.com/es-es/azure/azure-resource-manager/management/media/move-resource-group-and-subscription/select-move.png" alt="select move">
+</div>
+<div class="title">Fig. 4. Mover a otra suscripción</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Selecciona los recursos a trasladar (todos) y la suscripción de destino. Elige un grupo de recursos de destino o introduce el nombre de uno nuevo (recomendado). Si aun no existe ningún grupo de recursos en la suscripción de destino la única opción permitida será crear un grupo de recursos nuevo.
+Confirma que tiene que actualizar los scripts para estos recursos y selecciona Aceptar.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/mover-grupo-recursos-nueva-suscripcion.png" alt="mover grupo recursos nueva suscripcion">
+</div>
+<div class="title">Fig. 5. Mover a otra suscripción</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="5">
+<li>
+<p>Tras unos segundos de validación, si todo es correcto, los recursos se irán moviendo a la suscripción de destino.</p>
+</li>
+<li>
+<p>Por último, cuando aparezca la notificación de que los recursos se han movido correctamente, inícialos para verificar su correcto funcionamiento.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/notificacion-movidos-correctamente.png" alt="notificacion movidos correctamente">
+</div>
+<div class="title">Fig. 6. Notificación</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Más información:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.microsoft.com/es-es/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal">Traslado de los recursos a una nueva suscripción</a></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-16 01:11:10 +0200
+Last updated 2020-06-16 02:18:44 +0200
 </div>
 </div>
 </body>

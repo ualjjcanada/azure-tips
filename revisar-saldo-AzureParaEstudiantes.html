@@ -438,9 +438,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="book">
+<body class="book toc2 toc-right">
 <div id="header">
 <h1>Azure Tips. Revisar el saldo de tu suscripción Azure para Estudiantes</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Tabla de contenidos</div>
+<ul class="sectlevel1">
+<li><a href="#_introducción">Introducción</a></li>
+<li><a href="#_revisar_el_saldo">Revisar el saldo</a></li>
+<li><a href="#_el_crédito_está_a_punto_de_agotarse">El crédito está a punto de agotarse</a></li>
+<li><a href="#_el_crédito_se_agotó">El crédito se agotó</a></li>
+<li><a href="#_el_crédito_expiró">El crédito expiró</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
@@ -450,12 +460,113 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 Version 1.0, Junio-2020.
 Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</p>
 </div>
+<div class="quoteblock abstract">
+<blockquote>
+Es importante que revises regularmente el saldo restante en tu suscripción Azure para Estudiantes. La suscripción incluye 12 meses de uso de un conjunto de recursos gratuitos, pero si agotas el saldo, la suscripción se desactiva perdiendo los recursos gratuitos.
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introducción">Introducción</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La cuenta de Azure for Students te ofrece 100 USD de crédito y una cantidad limitada de servicios gratuitos durante 12 meses. Cuando hayas agotado el crédito disponible o hayan transcurrido 12 meses, se deshabilitará tu suscripción de Azure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_revisar_el_saldo">Revisar el saldo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Puedes comprobar el crédito que te queda en el <a href="https://www.microsoftazuresponsorships.com/balance">portal de Patrocinio de Microsoft Azure</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión con las credenciales de tu cuenta de Azure for Students.</p>
+</li>
+<li>
+<p>La página de saldo brinda información sobre el crédito que has usado y el crédito que te queda. Puedes encontrar la fecha de expiración del crédito debajo de gráfico del crédito.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/media/azurestudents-subscription-disabled/azurestudents-credit-balance.png" alt="credito restante">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Para comprobar el uso de los servicios que consumen el crédito de Azure, selecciona Usage (Uso) en el menú de navegación de la izquierda y, luego, selecciona la suscripción a Azure for Students.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/media/azurestudents-subscription-disabled/azurestudents-credit-usage.png" alt="uso de los servicios">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_el_crédito_está_a_punto_de_agotarse">El crédito está a punto de agotarse</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si aun no has finalizado la asignatura y el crédito está a punto de agotarse, debes contactar con tu profesor para que te cree una nueva suscripción con crédito.</p>
+</div>
+<div class="paragraph">
+<p>Tras ello, deberás mover-grupos-recursos-entre-suscripciones.html[mover los grupos de recursos a la nueva suscripción] para evitar que se agote todo el saldo de tu suscripción Azure para Estudiantes.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<strong>ES MUY IMPORTANTE</strong> hacer esto <strong>ANTES</strong> de que <strong>EL SALDO QUEDE A CERO</strong>, porque en ese caso la suscripción se bloquea y ya no se pueden mover los grupos de recursos. Hay que escribir a soporte para que la reactiven, y tardan en solucionarlo.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_el_crédito_se_agotó">El crédito se agotó</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si aun no has finalizado la asignatura y el crédito está a punto de agotarse, debes contactar con tu profesor para que te reactiven temporalmente la suscripción y puedas <a href="mover-grupos-recursos-entre-suscripciones.html">mover los recursos una nueva suscripción</a> con crédito.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_el_crédito_expiró">El crédito expiró</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>El crédito de Azure for Students expira a los 12 meses de la creación de la suscripción. Una vez que el crédito expira, Azure deshabilita la suscripción. Si transcurren los doce meses y continuas siendo un estudiante, <em>se supone</em> que podrás renovar tu oferta Azure for Students. Si ya no eres estudiante, puedes cambiar a una suscripción de Pago por uso: debes ponerte en contacto con  <a href="https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade">Soporte técnico de Azure</a> para actualizar la suscripción a una suscripción de pago por uso. Tras ello, Azure te cobrará tarifas de pago por uso por cualquier servicio que uses.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Más información</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/azurestudents-subscription-disabled#youve-used-all-of-your-credit">¿Por qué está deshabilitada mi suscripción a Azure for Students y cómo reactivarla?</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-16 01:11:21 +0200
+Last updated 2020-06-16 02:58:09 +0200
 </div>
 </div>
 </body>
