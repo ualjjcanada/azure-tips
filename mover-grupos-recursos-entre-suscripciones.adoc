@@ -88,6 +88,11 @@ image::mover-grupo-recursos-nueva-suscripcion.png[role="thumb", align="center"]
 .Notificación
 image::notificacion-movidos-correctamente.png[role="thumb", align="center"]
 
+Si al mover una máquina virtual aparece un error indicando que no ha terminado en el tiempo establecido y asociado a un objeto tipo _database_ y _Microsoft.SQL_, *no te preocupes*, prueba a iniciar la máquina virtual en la suscripción de destino y verás que se inicia correctamente. 
+
+.Error de tiempo que no es problema tal.
+image::error-mover-suscripcion-2-no-problem.png[role="thumb", align="center"]
+
 
 
 ****
