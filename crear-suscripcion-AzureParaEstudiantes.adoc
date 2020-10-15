@@ -48,8 +48,6 @@ En este tutorial se indica cómo obtener una suscripción de Microsoft Azure par
 
 Con Microsoft Azure, cada estudiante tendrá su propia suscripción y gestionará su crédito de 100$, con el que podrá usar servicios cloud de Azure. El proceso de activación es recomendable hacerlo antes de la sesión presencial.
 
-== Pasos
-
 Para realizar la activación de la suscripción Azure para Estudiantes se debe usar la cuenta de email de Inlumine UAL (`xxxxxx@inlumine.ual.es`). La suscripción dura 12 meses, y *sólo tendrás acceso a una activación con la cuenta de la UAL*. 
 
 [NOTE]
@@ -59,7 +57,9 @@ Si no dispones todavía de cuenta personal de correo en la UAL `xxxxxx@inlumine.
 image::SolicitudAltaEnCampus.png[role="thumb", align="center"]
 ====
 
-. Registra tu cuenta `xxxxxx@inlumine.ual.es` en el Directorio Activo de Office 365 de la UAL. Para ello, sigue los pasos tras hacer clic en "Get Started": https://www.microsoft.com/es-es/education/products/office?ms.officeurl=students
+== Registro en Office 365
+
+Registra tu cuenta `xxxxxx@inlumine.ual.es` en el Directorio Activo de Office 365 de la UAL. Para ello, sigue los pasos tras hacer clic en "Get Started": https://www.microsoft.com/es-es/education/products/office?ms.officeurl=students
 
 .Alta en Office 365
 image::office365-empezar.png[role="thumb", align="center"]
@@ -84,10 +84,12 @@ image::office365-yaregistrado.png[role="thumb", align="center"]
 Si desea saber más sobre Office365 en la UAL: https://www.ual.es/descargadesoftware
 ====
 
-[start=2]
-. Solicita la suscripción Azure for Students en este enlace: https://azure.microsoft.com/es-es/free/students/
+== Suscripción Azure for Students
+
+Solicita la suscripción Azure for Students en este enlace: https://azure.microsoft.com/es-es/free/students/
 
 ****
+[%hardbreaks]
 OFERTA: Azure para estudiantes
 ID. DE OFERTA: MS-AZR-0170P
 https://azure.microsoft.com/es-es/offers/ms-azr-0170p/
@@ -96,7 +98,7 @@ https://azure.microsoft.com/es-es/offers/ms-azr-0170p/
 .Rellena tus datos
 image::AzureForStudents-link.png[role="thumb", align="center"]
 
-Inicie sesión con la contraseña que has creado anteriormente al darte de alta en Office 365. 
+Inicia sesión con la contraseña que has creado anteriormente al darte de alta en Office 365. 
 Te pedirá una serie de datos: un número de teléfono, debes introducir tu número de móvil porque recibirás un SMS... ten paciencia, puede tardar unos segundos.
 
 Tras ello, finaliza el registro.
@@ -112,7 +114,9 @@ Si agota el crédito disponible, se deshabilitará su suscripción de Azure. En 
 
 [NOTE]
 ====
-Si por algún motivo no has podido activar tu suscripción de Azure para Estudiantes, informa al profesor. Es posible que ya hayas usado tu crédito en cursos anteriores y no deje volver a activarlo. No te preocupes, el profesor te dará la solución. En este caso, debes esperar la respuesta del profesor, confirmando que tu suscripción está activa. 
+Si por algún motivo no has podido activar tu suscripción de Azure para Estudiantes, *informa al profesor*. Es posible que ya hayas usado tu crédito en cursos anteriores y no deje volver a activarlo. *No te preocupes*, el profesor te dará la solución. En este caso, debes esperar la respuesta del profesor, confirmando que tu suscripción está activa. 
+
+image::AzureForStudents-noreunerequisitos.png[role="thumb", align="center"]
 ====
 
 [NOTE]
@@ -129,8 +133,9 @@ Más información
 - https://azure.microsoft.com/es-es/free/free-account-students-faq/[Preguntas más frecuentes de Azure para estudiantes]
 ****
 
-[start=3]
-. Tras ello, entra en el Portal de Azure, con las credenciales del directorio activo de Office365: https://portal.azure.com
+== Portal de Azure
+
+Tras ello, entra en el Portal de Azure, con las credenciales del directorio activo de Office365: https://portal.azure.com
 
 Comprueba que tu suscripción está activa:
 
@@ -140,8 +145,12 @@ image::AzureForStudents-checkSubscription.png[role="thumb", align="center"]
 . Suscripción Azure para Estudiantes
 image::AzureForStudents-subscription.png[role="thumb", align="center"]
 
+[NOTE]
+====
+Hasta aquí, la actividad estaría completada.
+====
 
-== Otras suscripciones de Azure: cuentas gratuitas y para estudiantes __Starters__
+== Otras suscripciones de Azure
 
 [NOTE]
 ====
@@ -158,11 +167,20 @@ Existen diversas formas de comenzar a usar Azure, para estudiantes __Starters__ 
 Cualquier persona puede activar la "Cuenta Gratuita" de Azure con 170€ durante 30 días (https://azure.microsoft.com/es-es/free/) y algunos servicios durante 12 meses, y otros gratuitos para siempre. Pero si lo hacéis, os pedirá una tarjeta de crédito para verificar vuestra identidad, aunque no cobrará nada de la misma.
 
 
-=== Cuentas de estudiante Imagine (Azure for Students Starter)
+=== Cuentas de estudiante __Starter__
 
 ****
+[%hardbreaks]
 OFERTA: Azure para estudiantes: Starter
 ID. DE OFERTA: MS-AZR-0144P
 https://azure.microsoft.com/es-es/offers/ms-azr-0144p/
 ****
+
+También podéis solicitar una cuenta Azure de estudiante de iniciación (starter) usando tu email de @inlumine.ual.es. Sin embargo, estas cuentas están pensadas para estudios preuniversitarios y *solamente ofrecen recursos limitados (PaaS)*, y *no incluyen las máquinas virtuales (IaaS)* como las cuentas de estudiantes normales. Por ello, para las asignaturas del máster necesitamos las cuentas creadas con la suscripción de estudiante.
+
+Pasos para crear cuenta Azure de estudiante Starter:
+. Loguearse usando la cuenta Microsoft xxxxxx@inlumine.ual.es
+. Completar los datos Verificar cuenta estudiante, introduciendo un número de móvil válido
+. Revisar la bandeja de entrada del email @inlumine.ual.es, y verificar el registro
+. Tardará unos minutos en crear la suscripción de estudiante
 
