@@ -25,7 +25,7 @@ Codificación, idioma, tabla de contenidos, tipo de documento
 ////
 Nombre y título del trabajo
 ////
-= Azure Tips para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes
+= Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes
 
 
 . link:crear-suscripcion-AzureParaEstudiantes.html[Creación de la suscripción Azure para Estudiantes]
