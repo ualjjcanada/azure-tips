@@ -64,14 +64,14 @@ image::https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/med
 
 Si aun no has finalizado la asignatura y el crédito está a punto de agotarse, debes contactar con tu profesor para que te cree una nueva suscripción con crédito. 
 
-Tras ello, deberás mover-grupos-recursos-entre-suscripciones.html[mover los grupos de recursos a la nueva suscripción] para evitar que se agote todo el saldo de tu suscripción Azure para Estudiantes. 
+Tras ello, deberás link:mover-grupos-recursos-entre-suscripciones.html[mover los recursos una nueva suscripción] para evitar que se agote todo el saldo de tu suscripción Azure para Estudiantes. 
 
 [IMPORTANT]
 *ES MUY IMPORTANTE* hacer esto *ANTES* de que *EL SALDO QUEDE A CERO*, porque en ese caso la suscripción se bloquea y ya no se pueden mover los grupos de recursos. Hay que escribir a soporte para que la reactiven, y tardan en solucionarlo.
 
 == El crédito se agotó
 
-Si aun no has finalizado la asignatura y el crédito está a punto de agotarse, debes contactar con tu profesor para que te reactiven temporalmente la suscripción y puedas link:mover-grupos-recursos-entre-suscripciones.html[mover los recursos una nueva suscripción] con crédito. 
+Si aun no has finalizado la asignatura y el crédito se ha agotado, debes contactar con tu profesor para que te reactiven temporalmente la suscripción y puedas link:mover-grupos-recursos-entre-suscripciones.html[mover los recursos una nueva suscripción] con crédito que te creará el profesor. 
 
 == El crédito expiró
 
