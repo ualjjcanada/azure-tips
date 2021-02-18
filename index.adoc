@@ -28,12 +28,12 @@ Nombre y título del trabajo
 = Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes
 
 
-. link:crear-suscripcion-AzureParaEstudiantes.html[Creación de la suscripción Azure para Estudiantes]
+. link:docs/crear-suscripcion-AzureParaEstudiantes.html[Creación de la suscripción Azure para Estudiantes]
 
-. link:revisar-saldo-AzureParaEstudiantes.html[Revisar el saldo de la suscripción Azure para Estudiantes]
+. link:docs/revisar-saldo-AzureParaEstudiantes.html[Revisar el saldo de la suscripción Azure para Estudiantes]
 
-. link:agregar-administrador.html[Agregar o cambiar los administradores de la suscripción de Azure]
+. link:docs/agregar-administrador.html[Agregar o cambiar los administradores de la suscripción de Azure]
 
-. link:mover-grupos-recursos-entre-suscripciones.html[Mover los grupos de recursos de una suscripción a otra]
+. link:docs/mover-grupos-recursos-entre-suscripciones.html[Mover los grupos de recursos de una suscripción a otra]
 
-. link:alertas-consumo-azure.html[Añadir alertas de consumo (budgets) en Azure]
+. link:docs/alertas-consumo-azure.html[Añadir alertas de consumo (budgets) en Azure]
