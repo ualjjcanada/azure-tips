@@ -1,0 +1,69 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Selenium end-to-end testing
+:doctype: book
+:icons: font
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips. Añadir alertas de consumo (budgets) en Azure
+Cloud Computing - Máster en Tecnologías y Aplicaciones en Ingeniería Informática
+José Joaquín Cañadas <jjcanada@ual.es> y Manuel Torres <mtorres@ual.es>
+
+// Entrar en modo no numerado de apartados
+:numbered!: 
+
+[abstract]
+////
+COLOCA A CONTINUACIÓN EL RESUMEN
+////
+
+== Introducción
+
+En este tutorial se indica cómo añadir alertas de consumo para recibir un email cuando tu consumo de crédito Azure supere un determinado gasto. Esto te ayudará a controlar tu gasto.
+
+== Pasos
+
+En Azure el concepto de presupuesto (budget) y alertas es similar. 
+. Entra en tus suscripciones, elige tu suscripción, y en Budgets, Add: 
+
+.Creacion de un budget (prespuesto)
+image::budget-add.png[role="thumb", align="center"]
+
+[start=2]
+. Añade la información del presupuesto, así como los porcentajes de las alertas, y los emails que deseas que sean notificados (el del profesor, y el tuyo propio).
+
+.Datos de un budget (prespuesto)
+image::budget-create.png[role="thumb", align="center"]
+
+[start=3]
+. El presupuesto se ha creado. Cuando alcances el porcentaje de gasto mensual recibirás un email avisando. 
+
+.Lista de budgets (prespuestos)
+image::budget-listed.png[role="thumb", align="center"]
+
+
+****
+Más información
+
+* https://docs.microsoft.com/es-es/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending[Uso de alertas de costes para supervisar el uso y el gasto]
+****

@@ -36,3 +36,4 @@ Nombre y título del trabajo
 
 . link:mover-grupos-recursos-entre-suscripciones.html[Mover los grupos de recursos de una suscripción a otra]
 
+. link:alertas-consumo-azure.html[Añadir alertas de consumo (budgets) en Azure]
