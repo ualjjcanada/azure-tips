@@ -43,8 +43,7 @@ En este tutorial se indica cómo añadir alertas de consumo para recibir un emai
 
 == Pasos
 
-En Azure el concepto de presupuesto (budget) y alertas es similar. 
-. Entra en tus suscripciones, elige tu suscripción, y en Budgets, Add: 
+En Azure el concepto de presupuesto (budget) y alertas es similar. Entra en tus suscripciones, elige tu suscripción, y en Budgets, Add: 
 
 .Creacion de un budget (prespuesto)
 image::budget-add.png[role="thumb", align="center"]
