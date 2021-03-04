@@ -27,6 +27,12 @@ Nombre y título del trabajo
 ////
 = Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes
 
+:hardbreaks:
+
+Joaquín Cañadas <jjcanada@ual.es>, Manuel Torres <mtorres@ual.es>
+Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Universidad de Almería
+
+:!hardbreaks:
 
 . link:docs/crear-suscripcion-AzureParaEstudiantes.html[Creación de la suscripción Azure para Estudiantes]
 
@@ -37,3 +43,5 @@ Nombre y título del trabajo
 . link:docs/mover-grupos-recursos-entre-suscripciones.html[Mover los grupos de recursos de una suscripción a otra]
 
 . link:docs/alertas-consumo-azure.html[Añadir alertas de consumo (budgets) en Azure]
+
+image:https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg[width=30%]
