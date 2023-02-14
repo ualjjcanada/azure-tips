@@ -55,6 +55,8 @@ Realiza la asginación de un nombre de DNS, debe ser un nombre único, y depende
 
 Puesto que ya disponemos del nombre de DNS para acceder a la VM, la IP no es necesario que sea estática, sino que podemos cambiarla a IP dinámica. Esto implica que cuando la VM se apague, la IP será liberada y no ahorraremos el costo de tenerla reservada. Al vover a iniciar la VM, una nueva IP será asignada a nuestra VM dinámicamente, algo que para nosotros será trasparente puesto que siempre usaremos el nombre de DNS.
 
+== Pasos
+
 . Desde la maquina virtual, accede a _Redes_, _Interfaz de Red_, _configuraciones de IP_. Selecciona la IP. A continuación, crea una nueva IP dinámica
 
 .Crear nueva IP dinámica
@@ -90,4 +92,4 @@ image::asociar-y-guardar.png[role="thumb", align="center", width=400]
 .IP dinámica 
 image::ip-dinamica.png[role="thumb", align="center", width=400]
 
-IMPORTANT: No olivides *elminar la IP estática*. Aunque esté desasociada sigue existiendo y formando parte del grupo de recursos. Desde el grupo de recursos, elige la IP estática desasociada y eliminalá. 
+IMPORTANT: No olivides *elminar la IP estática*. Aunque esté desasociada sigue existiendo y formando parte del grupo de recursos. Desde el grupo de recursos, elige la IP estática desasociada y eliminala. 
