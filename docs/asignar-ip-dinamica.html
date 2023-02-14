@@ -481,7 +481,7 @@ En este tutorial se indica cómo modificar la IP de una máquina vitual de IP es
 <h2 id="_introducción">Introducción</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Tras crear una nueva máquina virtual debes Asignar un nombre de DNS a la máquina virtual para acceder a ella.
+<p>Tras crear una nueva máquina virtual debes <strong>asignar un nombre de DNS</strong> a la máquina virtual para acceder a ella.
 Para ello, en la máquina virtual configura a la opcion <em>Nombre de DNS</em></p>
 </div>
 <div class="imageblock text-center thumb">
@@ -492,10 +492,10 @@ Para ello, en la máquina virtual configura a la opcion <em>Nombre de DNS</em></
 </div>
 <div class="paragraph">
 <p>Comprobarás que la <strong>IP es estática</strong>. Eso supone que la IP está reservada para la VM incluso cuando esté apagada.
-Asigna un nombre de DNS, debe ser un nombre único, y depende de la Región Azure. Este cambia al apagar y encender la VM.</p>
+Realiza la asginación de un nombre de DNS, debe ser un nombre único, y depende de la Región Azure. Este <strong>no cambia</strong> al apagar y encender la VM.</p>
 </div>
 <div class="paragraph">
-<p>Puesto que ya disponemos del nombre de DNS para acceder a la VM, la IP no es necesario que sea estática, sino que podemos cambiarla a IP dinámica. Esto implica que cuando la VM se apague, la IP será liberada y no nos cobrarán por ella. Al vover a iniciar la VM, una nueva IP será asignada a nuestra VM dinámicamente, algo que para nosotros será trasparente puesto que siempre usaremos el nombre de DNS.</p>
+<p>Puesto que ya disponemos del nombre de DNS para acceder a la VM, la IP no es necesario que sea estática, sino que podemos cambiarla a IP dinámica. Esto implica que cuando la VM se apague, la IP será liberada y no ahorraremos el costo de tenerla reservada. Al vover a iniciar la VM, una nueva IP será asignada a nuestra VM dinámicamente, algo que para nosotros será trasparente puesto que siempre usaremos el nombre de DNS.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -575,12 +575,24 @@ Asigna un nombre de DNS, debe ser un nombre único, y depende de la Región Azur
 </div>
 <div class="title">Fig. 7. IP dinámica</div>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+No olivides <strong>elminar la IP estática</strong>. Aunque esté desasociada sigue existiendo y formando parte del grupo de recursos. Desde el grupo de recursos, elige la IP estática desasociada y eliminalá.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-14 14:52:19 +0100
+Last updated 2023-02-14 14:57:19 +0100
 </div>
 </div>
 </body>
