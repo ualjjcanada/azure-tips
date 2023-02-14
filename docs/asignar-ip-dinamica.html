@@ -5,8 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<meta name="keywords" content="Selenium end-to-end testing">
-<title>Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes</title>
+<meta name="keywords" content="Azure maquina virtual ip dinamica estatica">
+<meta name="author" content="Herramientas y Métodos en Ingeniería del Software">
+<title>Azure Tips. Modificar la IP de estática a dinámica en una máquina vitual</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,48 +439,148 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="book">
+<body class="book toc2 toc-right">
 <div id="header">
-<h1>Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes</h1>
+<h1>Azure Tips. Modificar la IP de estática a dinámica en una máquina vitual</h1>
+<div class="details">
+<span id="author" class="author">Herramientas y Métodos en Ingeniería del Software</span><br>
+<span id="revdate">Version 2023.</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Tabla de contenidos</div>
+<ul class="sectlevel1">
+<li><a href="#_introducción">Introducción</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;, Manuel Torres &lt;<a href="mailto:mtorres@ual.es">mtorres@ual.es</a>&gt;<br>
-Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Universidad de Almería</p>
+<p>Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;, Manuel Torres &lt;<a href="mailto:mtorres@ual.es">mtorres@ual.es</a>&gt;</p>
+</div>
+<div class="quoteblock abstract">
+<blockquote>
+En este tutorial se indica cómo modificar la IP de una máquina vitual de IP estática a IP dinámica, con el objetivo de que no nos cobren por reservar una IP cuando la máquina virtual esté apagada.
+</blockquote>
+</div>
+<div class="ulist">
+<div class="title">Objetivos</div>
+<ul>
+<li>
+<p>Asignar un nombre de DNS a la máquina virtual para acceder a ella.</p>
+</li>
+<li>
+<p>Modificar la dirección IP de la máquina virtua, de estática a dinámica.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introducción">Introducción</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tras crear una nueva máquina virtual debes Asignar un nombre de DNS a la máquina virtual para acceder a ella.
+Para ello, en la máquina virtual configura a la opcion <em>Nombre de DNS</em></p>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/vm-dns-name.png" alt="vm dns name" width="800">
+</div>
+<div class="title">Fig. 1. Nombre de DNS</div>
+</div>
+<div class="paragraph">
+<p>Comprobarás que la <strong>IP es estática</strong>. Eso supone que la IP está reservada para la VM incluso cuando esté apagada.
+Asigna un nombre de DNS, debe ser un nombre único, y depende de la Región Azure. Este cambia al apagar y encender la VM.</p>
+</div>
+<div class="paragraph">
+<p>Puesto que ya disponemos del nombre de DNS para acceder a la VM, la IP no es necesario que sea estática, sino que podemos cambiarla a IP dinámica. Esto implica que cuando la VM se apague, la IP será liberada y no nos cobrarán por ella. Al vover a iniciar la VM, una nueva IP será asignada a nuestra VM dinámicamente, algo que para nosotros será trasparente puesto que siempre usaremos el nombre de DNS.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="docs/crear-suscripcion-AzureParaEstudiantes.html">Creación de la suscripción Azure para Estudiantes</a></p>
-</li>
-<li>
-<p><a href="docs/revisar-saldo-AzureParaEstudiantes.html">Revisar el saldo de la suscripción Azure para Estudiantes</a></p>
-</li>
-<li>
-<p><a href="docs/agregar-administrador.html">Agregar o cambiar los administradores de la suscripción de Azure</a></p>
-</li>
-<li>
-<p><a href="docs/mover-grupos-recursos-entre-suscripciones.html">Mover los grupos de recursos de una suscripción a otra</a></p>
-</li>
-<li>
-<p><a href="docs/alertas-consumo-azure.html">Añadir alertas de consumo (budgets) en Azure</a></p>
-</li>
-<li>
-<p><a href="docs/asignar-ip-dinamica.html">Modificar la IP de estática a dinámica en una VM</a></p>
+<p>Desde la maquina virtual, accede a <em>Redes</em>, <em>Interfaz de Red</em>, <em>configuraciones de IP</em>. Selecciona la IP. A continuación, crea una nueva IP dinámica</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Microsoft Azure Logo" width="30%"></span></p>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/crear-nueva-ip-dinamica.png" alt="crear nueva ip dinamica" width="400">
+</div>
+<div class="title">Fig. 2. Crear nueva IP dinámica</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Haz clic en Guardar. Aparecerá un notificación de error indicando que no ha sido posible guardar la interfaz de red.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/notificacion-ko-ip.png" alt="notificacion ko ip" width="400">
+</div>
+<div class="title">Fig. 3. Notificacion de error</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>El motivo es que antes de asignar la nueva IP debes desasociar la antigua IP estática, y una vez hecho esto, asociar la nueva IP dinámica.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/desasociar-ip.png" alt="desasociar ip" width="400">
+</div>
+<div class="title">Fig. 4. Desasociar IP</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Debes esperar a la notificación confirmando que la IP ha sido desasociada.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/notificacion-ok-ip.png" alt="notificacion ok ip" width="400">
+</div>
+<div class="title">Fig. 5. Notificacion de cambios correctos</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="5">
+<li>
+<p>Tras ello, asocia la nueva IP dinámica creada anterioremente. Debes actualizar la página si no responde la opción de <em>Asociar</em>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/asociar-y-guardar.png" alt="asociar y guardar" width="400">
+</div>
+<div class="title">Fig. 6. Asociar y guardar</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="6">
+<li>
+<p>Vuelve a la configuración de la VM. Verás que ahora la IP ahora es dinámica.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/ip-dinamica.png" alt="ip dinamica" width="400">
+</div>
+<div class="title">Fig. 7. IP dinámica</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-14 14:53:28 +0100
+Last updated 2023-02-14 14:52:19 +0100
 </div>
 </div>
 </body>

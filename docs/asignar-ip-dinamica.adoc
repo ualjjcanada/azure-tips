@@ -1,0 +1,92 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Azure maquina virtual ip dinamica estatica
+:doctype: book
+:icons: font
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips. Modificar la IP de estática a dinámica en una máquina vitual 
+Herramientas y Métodos en Ingeniería del Software
+Version 2023.
+Joaquín Cañadas <jjcanada@ual.es>, Manuel Torres <mtorres@ual.es>
+
+// Entrar en modo no numerado de apartados
+:numbered!: 
+
+[abstract]
+////
+COLOCA A CONTINUACIÓN EL RESUMEN
+////
+En este tutorial se indica cómo modificar la IP de una máquina vitual de IP estática a IP dinámica, con el objetivo de que no nos cobren por reservar una IP cuando la máquina virtual esté apagada.
+
+.Objetivos
+* Asignar un nombre de DNS a la máquina virtual para acceder a ella.
+* Modificar la dirección IP de la máquina virtua, de estática a dinámica.
+
+== Introducción
+Tras crear una nueva máquina virtual debes Asignar un nombre de DNS a la máquina virtual para acceder a ella.
+Para ello, en la máquina virtual configura a la opcion _Nombre de DNS_
+
+.Nombre de DNS
+image::vm-dns-name.png[role="thumb", align="center", width=800]
+
+Comprobarás que la *IP es estática*. Eso supone que la IP está reservada para la VM incluso cuando esté apagada. 
+Asigna un nombre de DNS, debe ser un nombre único, y depende de la Región Azure. Este cambia al apagar y encender la VM.
+
+Puesto que ya disponemos del nombre de DNS para acceder a la VM, la IP no es necesario que sea estática, sino que podemos cambiarla a IP dinámica. Esto implica que cuando la VM se apague, la IP será liberada y no nos cobrarán por ella. Al vover a iniciar la VM, una nueva IP será asignada a nuestra VM dinámicamente, algo que para nosotros será trasparente puesto que siempre usaremos el nombre de DNS.
+
+. Desde la maquina virtual, accede a _Redes_, _Interfaz de Red_, _configuraciones de IP_. Selecciona la IP. A continuación, crea una nueva IP dinámica
+
+.Crear nueva IP dinámica
+image::crear-nueva-ip-dinamica.png[role="thumb", align="center", width=400]
+
+[start=2]
+. Haz clic en Guardar. Aparecerá un notificación de error indicando que no ha sido posible guardar la interfaz de red. 
+
+.Notificacion de error 
+image::notificacion-ko-ip.png[role="thumb", align="center",width=400]
+
+[start=3]
+. El motivo es que antes de asignar la nueva IP debes desasociar la antigua IP estática, y una vez hecho esto, asociar la nueva IP dinámica. 
+
+.Desasociar IP
+image::desasociar-ip.png[role="thumb", align="center", width=400]
+
+[start=4]
+. Debes esperar a la notificación confirmando que la IP ha sido desasociada.
+
+.Notificacion de cambios correctos 
+image::notificacion-ok-ip.png[role="thumb", align="center", width=400]
+
+[start=5]
+. Tras ello, asocia la nueva IP dinámica creada anterioremente. Debes actualizar la página si no responde la opción de _Asociar_.
+
+.Asociar y guardar 
+image::asociar-y-guardar.png[role="thumb", align="center", width=400]
+
+[start=6]
+. Vuelve a la configuración de la VM. Verás que ahora la IP ahora es dinámica. 
+
+.IP dinámica 
+image::ip-dinamica.png[role="thumb", align="center", width=400]
+

@@ -44,4 +44,6 @@ Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Unive
 
 . link:docs/alertas-consumo-azure.html[Añadir alertas de consumo (budgets) en Azure]
 
+. link:docs/asignar-ip-dinamica.html[Modificar la IP de estática a dinámica en una VM]
+
 image:https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg[width=30%]
