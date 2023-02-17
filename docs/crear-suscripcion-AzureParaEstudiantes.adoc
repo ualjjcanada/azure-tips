@@ -28,7 +28,7 @@ Nombre y título del trabajo
 = Azure Tips. Crear la suscripción Azure para Estudiantes
 
 Herramientas y Métodos en Ingeniería del Software
-Version 1.1, Febrero-2021.
+Version Febrero-2023.
 Joaquín Cañadas <jjcanada@ual.es>, Manuel Torres <mtorres@ual.es>
 
 // Entrar en modo no numerado de apartados
@@ -41,52 +41,39 @@ COLOCA A CONTINUACIÓN EL RESUMEN
 En este tutorial se indica cómo obtener una suscripción de Microsoft Azure para Estudiantes para el uso en la asignatura. Tras el registro y la activación de la suscripción podrá consultar el crédito disponible para usar libremente en servicios de Microsoft Azure.
 
 .Objetivos
-* Registro en el Directorio Activo de Office 365 de la UAL.
-* Activación de la suscripción Azure para Estudiantes con 100$ de crédito para su uso en la asignatura.
+* Alta de la cuenta de estudiante @inlumine y cuenta Microsoft de la UAL.
+* Activación de la suscripción Azure para Estudiantes.
 
 == Introducción
 
-Con Microsoft Azure, cada estudiante tendrá su propia suscripción y gestionará su crédito de 100$, con el que podrá usar servicios cloud de Azure. El proceso de activación es recomendable hacerlo antes de la sesión presencial.
+Con Microsoft Azure, cada estudiante tendrá su propia suscripción y gestionará su crédito de 100$, con el que podrá usar servicios cloud de Azure. La suscripción dura 12 meses, y *sólo tendrás acceso a una activación con la cuenta de la UAL*. El proceso de activación es recomendable hacerlo antes de la sesión presencial. 
 
-Para realizar la activación de la suscripción Azure para Estudiantes se debe usar la cuenta de email de Inlumine UAL (`xxxxxx@inlumine.ual.es`). La suscripción dura 12 meses, y *sólo tendrás acceso a una activación con la cuenta de la UAL*. 
+Para realizar la activación de la suscripción Azure para Estudiantes primero debes tener cuenta de email de @inlumine UALCloud (`xxxxxx@inlumine.ual.es`) y esta debe estar activada como cuenta Microsoft. 
 
 [NOTE]
 ====
-Si no dispones todavía de cuenta personal de correo en la UAL `xxxxxx@inlumine.ual.es`, puedes creártela entrando en https://campus.ual.es/[Campus Virtual], y seleccionando `Solicitud Alta en Campus`. 
+Si no dispones todavía de cuenta personal UALCloud `xxxxxx@inlumine.ual.es`, entra en https://campus.ual.es/[Campus Virtual]:
 
-image::SolicitudAltaEnCampus.png[role="thumb", align="center"]
+ - en el servicio UALCloud puedes dar de alta tu correo.
+ - en el servicio UAL-Microsoft puedes dar de alta tu correo en Microsoft.
+
+Ambos servicios pueden estar sincronizados con la contraseña de Campus.
+
+image::alta-campus.png[role="thumb", align="center"]
 ====
-
-== Registro en Office 365
-
-Registra tu cuenta `xxxxxx@inlumine.ual.es` en el Directorio Activo de Office 365 de la UAL. Para ello, sigue los pasos tras hacer clic en "Get Started": https://www.microsoft.com/es-es/education/products/office?ms.officeurl=students
-
-.Alta en Office 365
-image::office365-empezar.png[role="thumb", align="center"]
-
-.Selecciona Estudiante
-image::office365-estudiante.png[role="thumb", align="center"]
-
-
-* Solamente en el caso de que ya tuvieras activada tu cuenta en el Directorio Activo de la UAL con anterioridad, os aparecerá un mensaje así: 
-
-image::office365-yaregistrado.png[role="thumb", align="center"]
-
-
-* *¿Qué es necesario para suscribirse?* Durante el proceso debes proporcionar una serie de datos, en concreto el nombre y apellidos, y una contraseña. La contraseña NO tiene por qué coincidir con el password único de vuestro usuario de la UAL.
-
-.Rellena tus datos
-image::office365-datos.png[role="thumb", align="center"]
 
 
 [NOTE]
 ====
-Si desea saber más sobre Office365 en la UAL: https://www.ual.es/descargadesoftware
+Si desea saber más sobre Office365 en la UAL: https://www.ual.es/descargadesoftware/software-microsoft
 ====
 
 == Suscripción Azure para Estudiantes
 
 Solicita la suscripción Azure para Estudiantes en este enlace: https://azure.microsoft.com/es-es/free/students/
+
+.Pagina inicial de Azure para estudiantes: Empiece gratis
+image::AzureForStudents-empiecegratis.png[role="thumb", align="center"]
 
 ****
 [%hardbreaks]
@@ -95,11 +82,8 @@ ID. DE OFERTA: MS-AZR-0170P
 https://azure.microsoft.com/es-es/offers/ms-azr-0170p/
 ****
 
-.Rellena tus datos
-image::AzureForStudents-link.png[role="thumb", align="center"]
-
-Inicia sesión con la contraseña que has creado anteriormente al darte de alta en Office 365. 
-Te pedirá una serie de datos: un número de teléfono, debes introducir tu número de móvil porque recibirás un SMS... ten paciencia, puede tardar unos segundos.
+Inicia sesión con tu correo @inlumine y con tu contraseña de la UAL. 
+Te pedirá una serie de datos: un número de teléfono, debes introducir tu número de móvil porque recibirás un SMS... Ten paciencia, puede tardar unos segundos.
 
 Tras ello, finaliza el registro.
 
