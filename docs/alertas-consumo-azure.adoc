@@ -41,6 +41,8 @@ COLOCA A CONTINUACIÓN EL RESUMEN
 
 En este tutorial se indica cómo añadir alertas de consumo para recibir un email cuando tu consumo de crédito Azure supere un determinado gasto. Esto te ayudará a controlar tu gasto.
 
+IMPORTANT: Desde el curso 2023 esta opcion ya *no está disponible* para las cuentas Azure para estudiantes.
+
 == Pasos
 
 En Azure el concepto de presupuesto (budget) y alertas es similar. Entra en tus suscripciones, elige tu suscripción, y en Budgets, Add: 
