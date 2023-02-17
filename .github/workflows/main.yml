@@ -1,2 +1,0 @@
-- name: build asciidoctor action
-  uses: tonynv/asciidoctor-action@v2
