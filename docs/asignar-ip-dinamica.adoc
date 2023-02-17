@@ -57,39 +57,54 @@ Puesto que ya disponemos del nombre de DNS para acceder a la VM, la IP no es nec
 
 == Pasos
 
-. Desde la maquina virtual, accede a _Redes_, _Interfaz de Red_, _configuraciones de IP_. Selecciona la IP. A continuación, crea una nueva IP dinámica
+. Desde la maquina virtual, accede a _Redes_, _Interfaz de Red_, _configuraciones de IP_. Selecciona la IP. 
+
+.Configuraciones de IP
+image::configuraciones-ip.png[role="thumb", align="center", width=800]
+
+[start=2]
+. A continuación, crea una nueva IP dinámica
 
 .Crear nueva IP dinámica
 image::crear-nueva-ip-dinamica.png[role="thumb", align="center", width=400]
 
-[start=2]
+[start=3]
 . Haz clic en Guardar. Aparecerá un notificación de error indicando que no ha sido posible guardar la interfaz de red. 
 
 .Notificacion de error 
 image::notificacion-ko-ip.png[role="thumb", align="center",width=400]
 
-[start=3]
+[start=4]
 . El motivo es que antes de asignar la nueva IP debes desasociar la antigua IP estática, y una vez hecho esto, asociar la nueva IP dinámica. 
 
 .Desasociar IP
 image::desasociar-ip.png[role="thumb", align="center", width=400]
 
-[start=4]
+[start=5]
 . Debes esperar a la notificación confirmando que la IP ha sido desasociada.
 
 .Notificacion de cambios correctos 
 image::notificacion-ok-ip.png[role="thumb", align="center", width=400]
 
-[start=5]
-. Tras ello, asocia la nueva IP dinámica creada anterioremente. Debes actualizar la página si no responde la opción de _Asociar_.
+[start=6]
+. Tras ello, asocia la nueva IP dinámica creada anterioremente. Como la página no responde la opción de _Asociar_, debes navegar a alguna opción anterior con los enlaces de la cabecera de la página, y volver a entrar en la configuración de IP.
+
+.Volver a una página anterior para recargar
+image::menu-configuraciones-ip.png[role="thumb", align="center", width=400]
 
 .Asociar y guardar 
 image::asociar-y-guardar.png[role="thumb", align="center", width=400]
 
-[start=6]
+[start=7]
 . Vuelve a la configuración de la VM. Verás que ahora la IP ahora es dinámica. 
 
 .IP dinámica 
 image::ip-dinamica.png[role="thumb", align="center", width=400]
+
+[start=8]
+. Desde el grupo de recursos, elimina la IP estática.
+
+.Grupo de recursos con dos IPs
+image::grupo-recursos-ips.png[role="thumb", align="center", width=400]
 
 IMPORTANT: No olivides *elminar la IP estática*. Aunque esté desasociada sigue existiendo y formando parte del grupo de recursos. Desde el grupo de recursos, elige la IP estática desasociada y eliminala. 
