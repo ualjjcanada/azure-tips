@@ -1,0 +1,145 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Selenium end-to-end testing
+:doctype: book
+:icons: font
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips. Azure CLI
+
+Herramientas y Métodos en Ingeniería del Software
+Version 1.0, Marzo-2023.
+Joaquín Cañadas <jjcanada@ual.es>
+
+// Entrar en modo no numerado de apartados
+:numbered!: 
+
+[abstract]
+////
+COLOCA A CONTINUACIÓN EL RESUMEN
+////
+
+== Introducción
+
+Una vez que tienes varios recursos creados en Azure, por ejemplo una o varias máquinas virtuales, es mucho más cómodo usar la interfaz de linea de comandos *https://learn.microsoft.com/es-es/cli/azure/[Azure CLI]* para interactuar con ellas (apagar, encender, etc), mediante comandos ejecutados en tu terminal (cmd, powershell, ...). Esto te permitirá realizar estas operaciones *más rápidamente* sin tener que conectar al Portal de Azure para realizarlas. 
+
+== Instalar Azure CLI
+
+La instalación recomendada en Windows, con Chocolatey:
+
+ choco install azure-cli -y
+
+Enlaces a la https://learn.microsoft.com/es-es/cli/azure/install-azure-cli[instalación] en la documentación oficial.
+
+ - https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?source=recommendations&tabs=azure-cli[Install Azure CLI on Windows]
+ - https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-macos[Install Azure CLI on macOS]
+
+Tras la instalación, abre tu terminal favorito y ejecuta los comandos siguientes.
+
+== az login
+
+ az login
+
+Abre automáticamente un navegador y te permite loguearte con tus credenciales. 
+
+.Login correcto con Azure CLI
+image::az-login.png[role="thumb", align="center"]
+
+== az account show
+
+ az account show
+
+Muestra la información del usuario con el que estás conectado y la suscripción predeterminada. 
+
+.Propiedades de la cuenta de Azure
+image::az-account-show.png[role="thumb", align="center"]
+
+
+== az vm list
+
+ az vm list -d -o table
+
+.Listado de VMs en forma de tabla
+image::az-vm-list-table.png[role="thumb", align="center"]
+
+Para ver solamente las VMs que están encendidas: 
+
+ az vm list -d --query "[?powerState=='VM running']" -o table
+
+Para ver un listado detallado de VMs en formato JSON: 
+
+ az resource list --resource-type "Microsoft.Compute/virtualMachines"
+
+
+== az vm start
+
+Iniciar una máquina virtual detenida.
+
+ az vm start -g ResourceGroupNAME -n MyVmNAME --no-wait
+
+El parámetro `--no-wait` hace que el comando no espere hasta que finalice la operación.
+
+Ejemplo: 
+
+ az vm start -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+
+Tras ello, vemos el listado de VMs: 
+
+ az vm list -d -o table
+
+.Listado de VMs con VM SonarQube encendida
+image::az-vm-list2-table.png[role="thumb", align="center"]
+
+
+== az vm stop
+
+Apaga una máquina encendida.
+
+ az vm stop -g ResourceGroupNAME -n MyVmNAME --no-wait
+
+WARNING: Una máquina parada (stopped) sigue asignada, y por tanto *se aplican cargos* sobre ella. Es similar a apagarla desde el sistema operativo. *Para que no se apliquen cargos hay que desasignarla (deallocate)*.
+
+Ejemplo: 
+
+ az vm stop -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+ az vm stop -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait
+
+.Listado de VMs tras parar 2 máquinas
+image::az-vm-list-2stop-table.png[role="thumb", align="center"]
+
+
+== az vm deallocate
+
+Desasigna una máquina virtual para que los recursos informáticos dejen de estar asignados (ya no se aplican cargos). El estado cambiará de "Detenido" a "Detenido (desasignado)".
+
+ az vm deallocate -g MyResourceGroupNAME -n MyVmNAME --no-wait
+
+Ejemplo:
+
+ az vm deallocate -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+ az vm deallocate -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait
+
+.Listado de VMs paradas y desasignadas
+image::az-vm-list-deallocated-table.png[role="thumb", align="center"]
+
+IMPORTANT: Para apagar una VM *no es necesario pasar por el estado de parada (stopped)*, sino que puede ser *directamente parada y desasignada* con `az vm deallocate`.

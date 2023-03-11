@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
 <meta name="keywords" content="Selenium end-to-end testing">
-<title>Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes</title>
+<title>Azure Tips. Azure CLI</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,51 +438,262 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="book">
+<body class="book toc2 toc-right">
 <div id="header">
-<h1>Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes</h1>
+<h1>Azure Tips. Azure CLI</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Tabla de contenidos</div>
+<ul class="sectlevel1">
+<li><a href="#_introducción">Introducción</a></li>
+<li><a href="#_instalar_azure_cli">Instalar Azure CLI</a></li>
+<li><a href="#_az_login">az login</a></li>
+<li><a href="#_az_account_show">az account show</a></li>
+<li><a href="#_az_vm_list">az vm list</a></li>
+<li><a href="#_az_vm_start">az vm start</a></li>
+<li><a href="#_az_vm_stop">az vm stop</a></li>
+<li><a href="#_az_vm_deallocate">az vm deallocate</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;, Manuel Torres &lt;<a href="mailto:mtorres@ual.es">mtorres@ual.es</a>&gt;<br>
-Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Universidad de Almería</p>
+<p>Herramientas y Métodos en Ingeniería del Software
+Version 1.0, Marzo-2023.
+Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="docs/crear-suscripcion-AzureParaEstudiantes.html">Creación de la suscripción Azure para Estudiantes</a></p>
-</li>
-<li>
-<p><a href="docs/revisar-saldo-AzureParaEstudiantes.html">Revisar el saldo de la suscripción Azure para Estudiantes</a></p>
-</li>
-<li>
-<p><a href="docs/agregar-administrador.html">Agregar o cambiar los administradores de la suscripción de Azure</a></p>
-</li>
-<li>
-<p><a href="docs/mover-grupos-recursos-entre-suscripciones.html">Mover los grupos de recursos de una suscripción a otra</a></p>
-</li>
-<li>
-<p><a href="docs/alertas-consumo-azure.html">Añadir alertas de consumo (budgets) en Azure</a></p>
-</li>
-<li>
-<p><a href="docs/asignar-ip-dinamica.html">Modificar la IP de estática a dinámica en una VM</a></p>
-</li>
-<li>
-<p><a href="docs/azure-cli.html">Usar Azure CLI para interactuar desde el terminal</a></p>
-</li>
-</ol>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introducción">Introducción</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Una vez que tienes varios recursos creados en Azure, por ejemplo una o varias máquinas virtuales, es mucho más cómodo usar la interfaz de linea de comandos <strong><a href="https://learn.microsoft.com/es-es/cli/azure/">Azure CLI</a></strong> para interactuar con ellas (apagar, encender, etc), mediante comandos ejecutados en tu terminal (cmd, powershell, &#8230;&#8203;). Esto te permitirá realizar estas operaciones <strong>más rápidamente</strong> sin tener que conectar al Portal de Azure para realizarlas.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instalar_azure_cli">Instalar Azure CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La instalación recomendada en Windows, con Chocolatey:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>choco install azure-cli -y</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Microsoft Azure Logo" width="30%"></span></p>
+<p>Enlaces a la <a href="https://learn.microsoft.com/es-es/cli/azure/install-azure-cli">instalación</a> en la documentación oficial.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?source=recommendations&amp;tabs=azure-cli">Install Azure CLI on Windows</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-macos">Install Azure CLI on macOS</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Tras la instalación, abre tu terminal favorito y ejecuta los comandos siguientes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_az_login">az login</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>az login</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Abre automáticamente un navegador y te permite loguearte con tus credenciales.</p>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-login.png" alt="az login">
+</div>
+<div class="title">Fig. 1. Login correcto con Azure CLI</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_az_account_show">az account show</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>az account show</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Muestra la información del usuario con el que estás conectado y la suscripción predeterminada.</p>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-account-show.png" alt="az account show">
+</div>
+<div class="title">Fig. 2. Propiedades de la cuenta de Azure</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_az_vm_list">az vm list</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>az vm list -d -o table</pre>
+</div>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-vm-list-table.png" alt="az vm list table">
+</div>
+<div class="title">Fig. 3. Listado de VMs en forma de tabla</div>
+</div>
+<div class="paragraph">
+<p>Para ver solamente las VMs que están encendidas:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az vm list -d --query "[?powerState=='VM running']" -o table</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para ver un listado detallado de VMs en formato JSON:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az resource list --resource-type "Microsoft.Compute/virtualMachines"</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_az_vm_start">az vm start</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Iniciar una máquina virtual detenida.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az vm start -g ResourceGroupNAME -n MyVmNAME --no-wait</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>El parámetro <code>--no-wait</code> hace que el comando no espere hasta que finalice la operación.</p>
+</div>
+<div class="paragraph">
+<p>Ejemplo:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az vm start -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tras ello, vemos el listado de VMs:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az vm list -d -o table</pre>
+</div>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-vm-list2-table.png" alt="az vm list2 table">
+</div>
+<div class="title">Fig. 4. Listado de VMs con VM SonarQube encendida</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_az_vm_stop">az vm stop</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Apaga una máquina encendida.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az vm stop -g ResourceGroupNAME -n MyVmNAME --no-wait</pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Una máquina parada (stopped) sigue asignada, y por tanto <strong>se aplican cargos</strong> sobre ella. Es similar a apagarla desde el sistema operativo. <strong>Para que no se apliquen cargos hay que desasignarla (deallocate)</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Ejemplo:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az vm stop -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+az vm stop -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</pre>
+</div>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-vm-list-2stop-table.png" alt="az vm list 2stop table">
+</div>
+<div class="title">Fig. 5. Listado de VMs tras parar 2 máquinas</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_az_vm_deallocate">az vm deallocate</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Desasigna una máquina virtual para que los recursos informáticos dejen de estar asignados (ya no se aplican cargos). El estado cambiará de "Detenido" a "Detenido (desasignado)".</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az vm deallocate -g MyResourceGroupNAME -n MyVmNAME --no-wait</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ejemplo:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az vm deallocate -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+az vm deallocate -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</pre>
+</div>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-vm-list-deallocated-table.png" alt="az vm list deallocated table">
+</div>
+<div class="title">Fig. 6. Listado de VMs paradas y desasignadas</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Para apagar una VM <strong>no es necesario pasar por el estado de parada (stopped)</strong>, sino que puede ser <strong>directamente parada y desasignada</strong> con <code>az vm deallocate</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-11 01:22:55 +0100
+Last updated 2023-03-11 01:24:23 +0100
 </div>
 </div>
 </body>
