@@ -28,7 +28,7 @@ Nombre y título del trabajo
 = Azure Tips. Crear la suscripción Azure para Estudiantes
 
 Herramientas y Métodos en Ingeniería del Software
-Version Febrero-2023.
+Version Febrero-2024.
 Joaquín Cañadas <jjcanada@ual.es>, Manuel Torres <mtorres@ual.es>
 
 // Entrar en modo no numerado de apartados
