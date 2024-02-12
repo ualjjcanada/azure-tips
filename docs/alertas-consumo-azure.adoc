@@ -41,23 +41,37 @@ COLOCA A CONTINUACIÓN EL RESUMEN
 
 En este tutorial se indica cómo añadir alertas de consumo para recibir un email cuando tu consumo de crédito Azure supere un determinado gasto. Esto te ayudará a controlar tu gasto.
 
-IMPORTANT: Desde el curso 2023 esta opcion ya *no está disponible* para las cuentas Azure para estudiantes.
+IMPORTANT: En el curso 2023 esta opción *no estuvo* disponible para las cuentas Azure para estudiantes. En el 2024 parece que *de nuevo está disponible!!!*.
 
 == Pasos
 
-En Azure el concepto de presupuesto (budget) y alertas es similar. Entra en tus suscripciones, elige tu suscripción, y en Budgets, Add: 
+En Azure el concepto de presupuesto (budget) y alertas es similar. 
+
+. Entra en _Cost Management_,  _Budgets_, _Add_: 
 
 .Creacion de un budget (prespuesto)
 image::budget-add.png[role="thumb", align="center"]
 
 [start=2]
-. Añade la información del presupuesto, así como los porcentajes de las alertas, y los emails que deseas que sean notificados (el del profesor, y el tuyo propio).
+. Añade la información básica del presupuesto: 
 
-.Datos de un budget (prespuesto)
-image::budget-create.png[role="thumb", align="center"]
+- Nombre: `azure-mensual`
+- Reset period: `Annually`
+- fechas, 
+- y la cantidad (Amount): *`100`*. 
+
+
+.Detalles y cantidad de un budget (prespuesto)
+image::budget-create1.png[role="thumb", align="center"]
 
 [start=3]
-. El presupuesto se ha creado. Cuando alcances el porcentaje de gasto mensual recibirás un email avisando. 
+. En el siguiente paso configura los porcentajes de las alertas, y los emails que deseas que sean notificados (el tuyo propio).
+
+.Datos de un budget (prespuesto)
+image::budget-create2.png[role="thumb", align="center"]
+
+[start=3]
+. El presupuesto se ha creado. Cuando alcances el porcentaje de gasto recibirás un email avisando. 
 
 .Lista de budgets (prespuestos)
 image::budget-listed.png[role="thumb", align="center"]
