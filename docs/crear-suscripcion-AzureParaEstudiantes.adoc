@@ -84,6 +84,7 @@ ID. DE OFERTA: MS-AZR-0170P
 https://azure.microsoft.com/es-es/offers/ms-azr-0170p/
 ****
 
+
 . Inicia sesión con tu correo @inlumine y con tu contraseña de la UAL. 
 
 . Te pedirá una serie de datos para realizar la *verificación académica*: Nombre, Apellidos, pais, nombre de la escuela `(Universidad de Almería (UAL) (Almería)`, fecha de nacimiento, y dirección de correo electrónico educativa. 
@@ -120,6 +121,15 @@ image::Azure-Sign_up03.png[role="thumb", align="center", width=700, pdfwidth=60%
 
 .Azure para estudiantes: Portal de Azure
 image::Azure-Sign_up04.png[role="thumb", align="center", width=600, pdfwidth=60%]
+
+=== Renovar suscripción
+
+Si ya activaste tu suscripción Azure para Estudiantes en cursos anteriores, *renueva tu suscripción* aquí: 
+https://signup.azure.com/studentverification?offerType=1
+
+.Azure para estudiantes: Renovar suscripción
+image::renew-subscription.png[role="thumb", align="center", width=600, pdfwidth=60%]
+
 
 === Detalles Azure for Students
 
