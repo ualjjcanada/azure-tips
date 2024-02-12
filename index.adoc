@@ -22,6 +22,8 @@ Codificación, idioma, tabla de contenidos, tipo de documento
 :figure-caption: Fig.
 :imagesdir: images
 
+:nofooter:
+
 ////
 Nombre y título del trabajo
 ////
