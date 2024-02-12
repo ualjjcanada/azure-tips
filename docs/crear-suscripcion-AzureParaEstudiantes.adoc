@@ -70,10 +70,12 @@ Si desea saber más sobre Office365 en la UAL: https://www.ual.es/descargadesoft
 
 == Suscripción Azure para Estudiantes
 
+=== Creación de la suscripción
+
 Solicita la suscripción Azure para Estudiantes en este enlace: https://azure.microsoft.com/es-es/free/students/
 
 .Pagina inicial de Azure para estudiantes: Empiece gratis
-image::AzureForStudents-empiecegratis.png[role="thumb", align="center"]
+image::AzureForStudents-empiecegratis.png[role="thumb", align="center", width=500, pdfwidth=60%]
 
 ****
 [%hardbreaks]
@@ -82,13 +84,44 @@ ID. DE OFERTA: MS-AZR-0170P
 https://azure.microsoft.com/es-es/offers/ms-azr-0170p/
 ****
 
-Inicia sesión con tu correo @inlumine y con tu contraseña de la UAL. 
-Te pedirá una serie de datos: un número de teléfono, debes introducir tu número de móvil porque recibirás un SMS... Ten paciencia, puede tardar unos segundos.
+. Inicia sesión con tu correo @inlumine y con tu contraseña de la UAL. 
 
-Tras ello, finaliza el registro.
+. Te pedirá una serie de datos para realizar la *verificación académica*: Nombre, Apellidos, pais, nombre de la escuela `(Universidad de Almería (UAL) (Almería)`, fecha de nacimiento, y dirección de correo electrónico educativa. 
 
-.Acuerdo de registro
-image::AzureForStudents-registrarse.png[role="thumb", align="center"]
+.Azure para estudiantes: Verificación académica
+image::Azure-verificacionAcademica.png[role="thumb", align="center", width=600, pdfwidth=60%]
+
+
+[start=3]
+
+. Acepta la verificación académica.
+
+. Tras ello, rellena tu *perfil de estudiante*: País (`España`), Nombre, Apellidos, email, número de teléfono. En número de teléfono, debes introducir tu *número de móvil* porque _recibirás un SMS_. 
+
+.Azure para estudiantes: Perfil de estudiante (1)
+image::Azure-Sign_up01.png[role="thumb", align="center", width=700, pdfwidth=60%]
+
+[start=5]
+. Mas datos del perfil: CIF de empresa (`Q5450008G`), Dirección (`Ctra. Sacramento s/n`), Ciudad (`Almería`), Provincia (`Almería`), Código postal (`04120`).
+
+.Azure para estudiantes: Perfil de estudiante (2)
+image::Azure-Sign_up02.png[role="thumb", align="center", width=700, pdfwidth=60%]
+
+[start=6]
+. Acepta el contrato de cliente, y haz clic en *Registrarse*.
+
+.Azure para estudiantes: Perfil de estudiante (3)
+image::Azure-Sign_up03.png[role="thumb", align="center", width=700, pdfwidth=60%]
+
+[start=7]
+. Ten paciencia, puede tardar unos segundos.
+
+. Si todo ha ido bien, tu cuenta de Azure para Estudiantes ya está activada !!!!.
+
+.Azure para estudiantes: Portal de Azure
+image::Azure-Sign_up04.png[role="thumb", align="center", width=600, pdfwidth=60%]
+
+=== Detalles Azure for Students
 
 Azure para Estudiantes ofrece *$100* en créditos de Azure que puede usar durante los *12 primeros meses* en la mayoría de los productos de Azure, junto con algunos *servicios gratuitos* (sujetos a cambios), sin necesidad de facilitar una tarjeta de crédito al suscribirse.
 
@@ -100,7 +133,7 @@ Si agota el crédito disponible, se deshabilitará su suscripción de Azure. En 
 ====
 Si por algún motivo no has podido activar tu suscripción de Azure para Estudiantes, *informa al profesor*. Es posible que ya hayas usado tu crédito en cursos anteriores y no deje volver a activarlo. *No te preocupes*, el profesor te dará la solución. En este caso, debes esperar la respuesta del profesor, confirmando que tu suscripción está activa. 
 
-image::AzureForStudents-noreunerequisitos.png[role="thumb", align="center"]
+image::AzureForStudents-noreunerequisitos.png[role="thumb", align="center", width=600, pdfwidth=60%]
 ====
 
 [NOTE]
@@ -108,7 +141,7 @@ image::AzureForStudents-noreunerequisitos.png[role="thumb", align="center"]
 *¿Cómo puedo saber cuánto me queda del crédito de 100$?*
 Puedes ver el crédito que te queda en el portal Microsoft Azure Sponsorships: https://www.microsoftazuresponsorships.com/
 
-image::AzureForStudents-credito.png[role="thumb", align="center"]
+image::AzureForStudents-credito.png[role="thumb", align="center", width=600, pdfwidth=60%]
 ====
 
 ****
@@ -119,7 +152,7 @@ Más información
 
 == Portal de Azure
 
-Tras activar tu suscripción Azure para Estudiantes, entra en el Portal de Azure, con las credenciales del directorio activo de Office365: https://portal.azure.com
+Tras activar tu suscripción Azure para Estudiantes, entra en el Portal de Azure, con las credenciales de la UAL.
 
 Comprueba que tu suscripción está activa:
 

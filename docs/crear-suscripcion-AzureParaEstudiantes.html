@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.18">
+<meta name="generator" content="Asciidoctor 2.0.17">
 <meta name="keywords" content="Selenium end-to-end testing">
 <title>Azure Tips. Crear la suscripción Azure para Estudiantes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -85,10 +85,10 @@ code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;
 ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
-ul.square{list-style-type:square}
-ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -445,7 +445,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Tabla de contenidos</div>
 <ul class="sectlevel1">
 <li><a href="#_introducción">Introducción</a></li>
-<li><a href="#_suscripción_azure_para_estudiantes">Suscripción Azure para Estudiantes</a></li>
+<li><a href="#_suscripción_azure_para_estudiantes">Suscripción Azure para Estudiantes</a>
+<ul class="sectlevel2">
+<li><a href="#_creación_de_la_suscripción">Creación de la suscripción</a></li>
+<li><a href="#_detalles_azure_for_students">Detalles Azure for Students</a></li>
+</ul>
+</li>
 <li><a href="#_portal_de_azure">Portal de Azure</a></li>
 <li><a href="#_otras_suscripciones_de_azure">Otras suscripciones de Azure</a>
 <ul class="sectlevel2">
@@ -542,12 +547,14 @@ En este tutorial se indica cómo obtener una suscripción de Microsoft Azure par
 <div class="sect1">
 <h2 id="_suscripción_azure_para_estudiantes">Suscripción Azure para Estudiantes</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_creación_de_la_suscripción">Creación de la suscripción</h3>
 <div class="paragraph">
 <p>Solicita la suscripción Azure para Estudiantes en este enlace: <a href="https://azure.microsoft.com/es-es/free/students/" class="bare">https://azure.microsoft.com/es-es/free/students/</a></p>
 </div>
 <div class="imageblock text-center thumb">
 <div class="content">
-<img src="images/AzureForStudents-empiecegratis.png" alt="AzureForStudents empiecegratis">
+<img src="images/AzureForStudents-empiecegratis.png" alt="AzureForStudents empiecegratis" width="500">
 </div>
 <div class="title">Fig. 1. Pagina inicial de Azure para estudiantes: Empiece gratis</div>
 </div>
@@ -560,19 +567,83 @@ ID. DE OFERTA: MS-AZR-0170P<br>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Inicia sesión con la contraseña que has creado anteriormente al darte de alta en Office 365.
-Te pedirá una serie de datos: un número de teléfono, debes introducir tu número de móvil porque recibirás un SMS&#8230;&#8203; ten paciencia, puede tardar unos segundos.</p>
-</div>
-<div class="paragraph">
-<p>Tras ello, finaliza el registro.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión con tu correo @inlumine y con tu contraseña de la UAL.</p>
+</li>
+<li>
+<p>Te pedirá una serie de datos para realizar la <strong>verificación académica</strong>: Nombre, Apellidos, pais, nombre de la escuela <code>(Universidad de Almería (UAL) (Almería)</code>, fecha de nacimiento, y dirección de correo electrónico educativa.</p>
+</li>
+</ol>
 </div>
 <div class="imageblock text-center thumb">
 <div class="content">
-<img src="images/AzureForStudents-registrarse.png" alt="AzureForStudents registrarse">
+<img src="images/Azure-verificacionAcademica.png" alt="Azure verificacionAcademica" width="600">
 </div>
-<div class="title">Fig. 2. Acuerdo de registro</div>
+<div class="title">Fig. 2. Azure para estudiantes: Verificación académica</div>
 </div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Acepta la verificación académica.</p>
+</li>
+<li>
+<p>Tras ello, rellena tu <strong>perfil de estudiante</strong>: País (<code>España</code>), Nombre, Apellidos, email, número de teléfono. En número de teléfono, debes introducir tu <strong>número de móvil</strong> porque <em>recibirás un SMS</em>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/Azure-Sign_up01.png" alt="Azure Sign up01" width="700">
+</div>
+<div class="title">Fig. 3. Azure para estudiantes: Perfil de estudiante (1)</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="5">
+<li>
+<p>Mas datos del perfil: CIF de empresa (<code>Q5450008G</code>), Dirección (<code>Ctra. Sacramento s/n</code>), Ciudad (<code>Almería</code>), Provincia (<code>Almería</code>), Código postal (<code>04120</code>).</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/Azure-Sign_up02.png" alt="Azure Sign up02" width="700">
+</div>
+<div class="title">Fig. 4. Azure para estudiantes: Perfil de estudiante (2)</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="6">
+<li>
+<p>Acepta el contrato de cliente, y haz clic en <strong>Registrarse</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/Azure-Sign_up03.png" alt="Azure Sign up03" width="700">
+</div>
+<div class="title">Fig. 5. Azure para estudiantes: Perfil de estudiante (3)</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="7">
+<li>
+<p>Ten paciencia, puede tardar unos segundos.</p>
+</li>
+<li>
+<p>Si todo ha ido bien, tu cuenta de Azure para Estudiantes ya está activada !!!!.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/Azure-Sign_up04.png" alt="Azure Sign up04" width="600">
+</div>
+<div class="title">Fig. 6. Azure para estudiantes: Portal de Azure</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_detalles_azure_for_students">Detalles Azure for Students</h3>
 <div class="paragraph">
 <p>Azure para Estudiantes ofrece <strong>$100</strong> en créditos de Azure que puede usar durante los <strong>12 primeros meses</strong> en la mayoría de los productos de Azure, junto con algunos <strong>servicios gratuitos</strong> (sujetos a cambios), sin necesidad de facilitar una tarjeta de crédito al suscribirse.</p>
 </div>
@@ -594,7 +665,7 @@ Te pedirá una serie de datos: un número de teléfono, debes introducir tu núm
 </div>
 <div class="imageblock text-center thumb">
 <div class="content">
-<img src="images/AzureForStudents-noreunerequisitos.png" alt="AzureForStudents noreunerequisitos">
+<img src="images/AzureForStudents-noreunerequisitos.png" alt="AzureForStudents noreunerequisitos" width="600">
 </div>
 </div>
 </td>
@@ -614,7 +685,7 @@ Puedes ver el crédito que te queda en el portal Microsoft Azure Sponsorships: <
 </div>
 <div class="imageblock text-center thumb">
 <div class="content">
-<img src="images/AzureForStudents-credito.png" alt="AzureForStudents credito">
+<img src="images/AzureForStudents-credito.png" alt="AzureForStudents credito" width="600">
 </div>
 </div>
 </td>
@@ -637,11 +708,12 @@ Puedes ver el crédito que te queda en el portal Microsoft Azure Sponsorships: <
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_portal_de_azure">Portal de Azure</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Tras activar tu suscripción Azure para Estudiantes, entra en el Portal de Azure, con las credenciales del directorio activo de Office365: <a href="https://portal.azure.com" class="bare">https://portal.azure.com</a></p>
+<p>Tras activar tu suscripción Azure para Estudiantes, entra en el Portal de Azure, con las credenciales de la UAL.</p>
 </div>
 <div class="paragraph">
 <p>Comprueba que tu suscripción está activa:</p>
@@ -650,13 +722,13 @@ Puedes ver el crédito que te queda en el portal Microsoft Azure Sponsorships: <
 <div class="content">
 <img src="images/AzureForStudents-checkSubscription.png" alt="AzureForStudents checkSubscription">
 </div>
-<div class="title">Fig. 3. Comprueba tu suscripción Azure para Estudiantes</div>
+<div class="title">Fig. 7. Comprueba tu suscripción Azure para Estudiantes</div>
 </div>
 <div class="imageblock text-center thumb">
 <div class="content">
 <img src="images/AzureForStudents-subscription.png" alt="AzureForStudents subscription" width="500">
 </div>
-<div class="title">Fig. 4. Suscripción Azure para Estudiantes</div>
+<div class="title">Fig. 8. Suscripción Azure para Estudiantes</div>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -749,7 +821,7 @@ ID. DE OFERTA: MS-AZR-0144P<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-17 09:47:58 +0100
+Last updated 2024-02-12 23:33:24 +0100
 </div>
 </div>
 </body>
