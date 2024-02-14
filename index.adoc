@@ -36,6 +36,9 @@ Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Unive
 
 :!hardbreaks:
 
+// Table with 2 columns, first column is 50% of the width, left aligned, second column is 50% of the width, right aligned
+[cols="^50%,^50%",options="header"]
+
 . link:docs/crear-suscripcion-AzureParaEstudiantes.html[Creación de la suscripción Azure para Estudiantes]
 
 . link:docs/revisar-saldo-AzureParaEstudiantes.html[Revisar el saldo de la suscripción Azure para Estudiantes]
@@ -55,3 +58,10 @@ Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Unive
 . link:docs/azure-troubleshoot.html[Azure troubleshooting: Errores habutuales y soluciones]
 
 image:https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg[width=30%]
+
+
+// add a link to the source repository and the text "edit on GitHub"
+https://github.com/ualjjcanada/azure-tips[_Edit on GitHub_]
+// add the github logo as image
+image:https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png[width=5%]
+
