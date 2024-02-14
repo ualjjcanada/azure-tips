@@ -1,0 +1,58 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Selenium end-to-end testing
+:doctype: book
+:icons: font
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips. Azure troubleshooting
+
+Herramientas y Métodos en Ingeniería del Software
+Version 1.0, Febrero-2024.
+Joaquín Cañadas <jjcanada@ual.es>
+
+// Entrar en modo no numerado de apartados
+:numbered!: 
+
+[abstract]
+Problemas habituales y soluciones en Azure.
+
+== Error SSH: Permission denied (public key)
+
+Una vez creada la VM Linux debes acceder a ella por *ssh*. Un error habitual es que no te permita acceder y aparezca el mensaje `Permission denied (public key)`
+
+.SSH error: Permission denied (public key)
+image::az-vm-ssh-permission-denied.png[role="thumb", align="center", width=500, pdfwidth="80%", alt="Permission denied (public key)"]
+
+Para resolverlo, asegúrate que en comando ssh estás usando el mismo *nombre de usuario* que escribiste al crear la VM, *respetando mayúsculas y minúsculas*:
+
+. Selecciona la VM en la consola de azure, ve al menú "Reset password", que te permite actualizar la clave pública. Comprueba que usuario es `ubuntu` en minúscula, o bien has puesto otro. El usuario que escribes en el comando `ssh ubuntu@....` debe coincidir *exactamente* con el nombre de usuario que usaste al crear la VM. 
+
+.VM reset password: username
+image::az-vm-reset-passwd1.png[role="thumb", align="center", width="80%", pdfwidth="80%", alt="Reset password"]
+
+[start=2]
+. Si el error persiste, actualiza la clave pública de la VM con la opción 
+
+.VM reset password: enter new public key
+image::az-vm-reset-passwd2.png[role="thumb", align="center", width="80%", pdfwidth="80%", alt="Reset password"]

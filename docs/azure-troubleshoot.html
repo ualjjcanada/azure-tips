@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
 <meta name="keywords" content="Selenium end-to-end testing">
-<title>Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes</title>
+<title>Azure Tips. Azure troubleshooting</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,49 +438,78 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="book">
+<body class="book toc2 toc-right">
 <div id="header">
-<h1>Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes</h1>
+<h1>Azure Tips. Azure troubleshooting</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Tabla de contenidos</div>
+<ul class="sectlevel1">
+<li><a href="#_error_ssh_permission_denied_public_key">Error SSH: Permission denied (public key)</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;, Manuel Torres &lt;<a href="mailto:mtorres@ual.es">mtorres@ual.es</a>&gt;<br>
-Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Universidad de Almería</p>
+<p>Herramientas y Métodos en Ingeniería del Software
+Version 1.0, Febrero-2024.
+Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</p>
+</div>
+<div class="quoteblock abstract">
+<blockquote>
+Problemas habituales y soluciones en Azure.
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_error_ssh_permission_denied_public_key">Error SSH: Permission denied (public key)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Una vez creada la VM Linux debes acceder a ella por <strong>ssh</strong>. Un error habitual es que no te permita acceder y aparezca el mensaje <code>Permission denied (public key)</code></p>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-vm-ssh-permission-denied.png" alt="Permission denied (public key)" width="500">
+</div>
+<div class="title">Fig. 1. SSH error: Permission denied (public key)</div>
+</div>
+<div class="paragraph">
+<p>Para resolverlo, asegúrate que en comando ssh estás usando el mismo <strong>nombre de usuario</strong> que escribiste al crear la VM, <strong>respetando mayúsculas y minúsculas</strong>:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="docs/crear-suscripcion-AzureParaEstudiantes.html">Creación de la suscripción Azure para Estudiantes</a></p>
-</li>
-<li>
-<p><a href="docs/revisar-saldo-AzureParaEstudiantes.html">Revisar el saldo de la suscripción Azure para Estudiantes</a></p>
-</li>
-<li>
-<p><a href="docs/alertas-consumo-azure.html">Añadir alertas de consumo (budgets) en Azure</a></p>
-</li>
-<li>
-<p><a href="docs/agregar-administrador.html">Agregar o cambiar los administradores de la suscripción de Azure</a></p>
-</li>
-<li>
-<p><a href="docs/mover-grupos-recursos-entre-suscripciones.html">Mover los grupos de recursos de una suscripción a otra</a></p>
-</li>
-<li>
-<p><a href="docs/asignar-ip-dinamica.html">Modificar la IP de estática a dinámica en una VM</a></p>
-</li>
-<li>
-<p><a href="docs/azure-cli.html">Usar Azure CLI para interactuar desde el terminal</a></p>
-</li>
-<li>
-<p><a href="docs/azure-throubleshoot.html">Azure troubleshooting: Errores habutuales y soluciones</a></p>
+<p>Selecciona la VM en la consola de azure, ve al menú "Reset password", que te permite la clave pública. Comprueba que usuario es <code>ubuntu</code> en minúscula, o bien has puesto otro. El usuario que escribes en el comando <code>ssh ubuntu@&#8230;&#8203;.</code> debe coincidir <strong>exactamente</strong> con el nombre de usuario que usaste al crear la VM.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Microsoft Azure Logo" width="30%"></span></p>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-vm-reset-passwd1.png" alt="Reset password" width="80%">
+</div>
+<div class="title">Fig. 2. VM reset password: username</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Si el error persiste, actualiza la clave pública de la VM con la opción</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-vm-reset-passwd2.png" alt="Reset password" width="80%">
+</div>
+<div class="title">Fig. 3. VM reset password: enter new public key</div>
 </div>
 </div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2024-02-14 10:36:35 +0100
 </div>
 </div>
 </body>
