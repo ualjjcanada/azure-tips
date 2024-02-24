@@ -27,7 +27,7 @@ Nombre y título del trabajo
 ////
 = Azure Tips. Modificar la IP de estática a dinámica en una máquina vitual 
 Herramientas y Métodos en Ingeniería del Software
-Version 2023.
+Version 2024.
 Joaquín Cañadas <jjcanada@ual.es>, Manuel Torres <mtorres@ual.es>
 
 // Entrar en modo no numerado de apartados
@@ -48,7 +48,7 @@ Tras crear una nueva máquina virtual debes *asignar un nombre de DNS* a la máq
 Para ello, en la máquina virtual configura a la opcion _Nombre de DNS_
 
 .Nombre de DNS
-image::vm-dns-name.png[role="thumb", align="center", width=800]
+image::vm-dns-name.png[role="thumb", align="center", width=100%]
 
 Comprobarás que la *IP es estática*. Eso supone que la IP está reservada para la VM incluso cuando esté apagada. 
 Realiza la asginación de un nombre de DNS, debe ser un nombre único, y depende de la Región Azure. Este *no cambia* al apagar y encender la VM.
@@ -57,54 +57,42 @@ Puesto que ya disponemos del nombre de DNS para acceder a la VM, la IP no es nec
 
 == Pasos
 
-. Desde la maquina virtual, accede a _Redes_, _Interfaz de Red_, _configuraciones de IP_. Selecciona la IP. 
-
-.Configuraciones de IP
-image::configuraciones-ip.png[role="thumb", align="center", width=800]
+. Desde la maquina virtual, accede a _Redes_, _Interfaz de Red_, _configuraciones de IP_. Selecciona la configuración de IP (`ipconfig1`). 
 
 [start=2]
-. A continuación, crea una nueva IP dinámica
+. Desmarca la opocion de asociar una IP pública, y pulsa Guardar (Save).
 
-.Crear nueva IP dinámica
-image::crear-nueva-ip-dinamica.png[role="thumb", align="center", width=400]
+.Desmarcar asociar una IP
+image::descmarcar-asociar-ip.png[role="thumb", align="center", width=100%]
 
 [start=3]
-. Haz clic en Guardar. Aparecerá un notificación de error indicando que no ha sido posible guardar la interfaz de red. 
+. *Espera unos segundos* a que termine. No cambies de página, ni recargues la página.
 
-.Notificacion de error 
-image::notificacion-ko-ip.png[role="thumb", align="center",width=400]
+. Vuelve a seleccionar la configuración de IP (`ipconfig1`). A continuación, selecciona la marca _Asociar una IP pública_, y haz clic en `Crear una IP pública`.
 
-[start=4]
-. El motivo es que antes de asignar la nueva IP debes desasociar la antigua IP estática, y una vez hecho esto, asociar la nueva IP dinámica. 
-
-.Desasociar IP
-image::desasociar-ip.png[role="thumb", align="center", width=400]
+.Asociar una IP pública. Crear nueva IP pública
+image::asociar-nueva-ip-dinamica.png[role="thumb", align="center", width=100%]
 
 [start=5]
-. Debes esperar a la notificación confirmando que la IP ha sido desasociada.
+. Dale un nombre, selecciona _Basic_, _Dynamic_, _OK_.
 
-.Notificacion de cambios correctos 
-image::notificacion-ok-ip.png[role="thumb", align="center", width=400]
+.Nueva IP pública dinámica
+image::crear-nueva-ip-dinamica-24.png[role="thumb", align="center", width=100%]
+
 
 [start=6]
-. Tras ello, asocia la nueva IP dinámica creada anterioremente. Como la página no responde la opción de _Asociar_, debes navegar a alguna opción anterior con los enlaces de la cabecera de la página, y volver a entrar en la configuración de IP.
-
-.Volver a una página anterior para recargar
-image::menu-configuraciones-ip.png[role="thumb", align="center", width=400]
-
-.Asociar y guardar 
-image::asociar-y-guardar.png[role="thumb", align="center", width=400]
+. Haz clic en _Guardar (Save)_. Espera a que se realice la operación.
 
 [start=7]
-. Vuelve a la configuración de la VM. Verás que ahora la IP ahora es dinámica. 
+. Si todo es correcto, vuelve a la configuración de la VM. Verás que ahora la IP ahora es dinámica. 
 
 .IP dinámica 
-image::ip-dinamica.png[role="thumb", align="center", width=400]
+image::ip-dinamica.png[role="thumb", align="center", width=60%]
 
 [start=8]
-. Desde el grupo de recursos, elimina la IP estática.
+. Para finalizar, MUY IMPORTANTE: Desde el grupo de recursos, elimina la IP estática.
 
 .Grupo de recursos con dos IPs
-image::grupo-recursos-ips.png[role="thumb", align="center", width=400]
+image::grupo-recursos-ips.png[role="thumb", align="center", width=100%]
 
 IMPORTANT: No olivides *elminar la IP estática*. Aunque esté desasociada sigue existiendo y formando parte del grupo de recursos. Desde el grupo de recursos, elige la IP estática desasociada y eliminala. 
