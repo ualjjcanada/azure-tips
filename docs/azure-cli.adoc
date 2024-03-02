@@ -10,6 +10,13 @@ Codificación, idioma, tabla de contenidos, tipo de documento
 :icons: font
 
 ////
+///  Copy button on code blocks
+////
+[.doc]
+
+:docinfo: shared-footer
+
+////
 /// activar btn:
 ////
 :experimental:
@@ -47,7 +54,10 @@ Una vez que tienes varios recursos creados en Azure, por ejemplo una o varias m�
 
 La instalación recomendada en Windows, con Chocolatey:
 
- choco install azure-cli -y
+[source,bash]
+----
+choco install azure-cli -y
+----
 
 Enlaces a la https://learn.microsoft.com/es-es/cli/azure/install-azure-cli[instalación] en la documentación oficial.
 
@@ -56,19 +66,26 @@ Enlaces a la https://learn.microsoft.com/es-es/cli/azure/install-azure-cli[insta
 
 Tras la instalación, abre tu terminal favorito y ejecuta los comandos siguientes.
 
-== az login
+== Autenticación
 
- az login
+=== az login
+
+[source,bash]
+----
+az login
+----
 
 Abre automáticamente un navegador y te permite loguearte con tus credenciales. 
 
 .Login correcto con Azure CLI
 image::az-login.png[role="thumb", align="center"]
 
-== az account show
+=== az account show
 
- az account show
-
+[source,bash]
+----
+az account show
+----
 Muestra la información del usuario con el que estás conectado y la suscripción predeterminada. 
 
 .Propiedades de la cuenta de Azure
@@ -78,35 +95,51 @@ image::az-account-show.png[role="thumb", align="center"]
 
 === az vm list
 
- az vm list -d -o table
-
+[source,bash]
+----
+az vm list -d -o table
+----
 .Listado de VMs en forma de tabla
 image::az-vm-list-table.png[role="thumb", align="center"]
 
 Para ver solamente las VMs que están encendidas: 
 
- az vm list -d --query "[?powerState=='VM running']" -o table
+[source,bash]
+----
+az vm list -d --query "[?powerState=='VM running']" -o table
+----
 
 Para ver un listado detallado de VMs en formato JSON: 
 
- az resource list --resource-type "Microsoft.Compute/virtualMachines"
-
+[source,bash]
+----
+az resource list --resource-type "Microsoft.Compute/virtualMachines"
+----
 
 === az vm start
 
 Iniciar una máquina virtual detenida.
 
- az vm start -g ResourceGroupNAME -n MyVmNAME --no-wait
+[source,bash]
+----
+az vm start -g ResourceGroupNAME -n MyVmNAME --no-wait
+----
 
 El parámetro `--no-wait` hace que el comando no espere hasta que finalice la operación.
 
 Ejemplo: 
 
- az vm start -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+[source,bash]
+----
+az vm start -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+----
 
 Tras ello, vemos el listado de VMs: 
 
- az vm list -d -o table
+[source,bash]
+----
+az vm list -d -o table
+----
 
 .Listado de VMs con VM SonarQube encendida
 image::az-vm-list2-table.png[role="thumb", align="center"]
@@ -116,14 +149,20 @@ image::az-vm-list2-table.png[role="thumb", align="center"]
 
 Apaga una máquina encendida.
 
- az vm stop -g ResourceGroupNAME -n MyVmNAME --no-wait
+[source,bash]
+----
+az vm stop -g ResourceGroupNAME -n MyVmNAME --no-wait
+----
 
 WARNING: Una máquina parada (stopped) sigue asignada, y por tanto *se aplican cargos* sobre ella. Es similar a apagarla desde el sistema operativo. *Para que no se apliquen cargos hay que desasignarla (deallocate)*.
 
 Ejemplo: 
 
- az vm stop -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
- az vm stop -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait
+[source,bash]
+----
+az vm stop -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+az vm stop -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait
+----
 
 .Listado de VMs tras parar 2 máquinas
 image::az-vm-list-2stop-table.png[role="thumb", align="center"]
@@ -133,12 +172,18 @@ image::az-vm-list-2stop-table.png[role="thumb", align="center"]
 
 Desasigna una máquina virtual para que los recursos informáticos dejen de estar asignados (ya no se aplican cargos). El estado cambiará de "Detenido" a "Detenido (desasignado)".
 
- az vm deallocate -g MyResourceGroupNAME -n MyVmNAME --no-wait
+[source,bash]
+----
+az vm deallocate -g MyResourceGroupNAME -n MyVmNAME --no-wait
+----
 
 Ejemplo:
 
- az vm deallocate -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
- az vm deallocate -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait
+[source,bash]
+----
+az vm deallocate -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+az vm deallocate -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait
+----
 
 .Listado de VMs paradas y desasignadas
 image::az-vm-list-deallocated-table.png[role="thumb", align="center"]
@@ -153,14 +198,20 @@ Por ello puede ser recomendable cambiar su tipo de SSD a HDD, o su tamaño, para
 
 === az disk list
 
- az disk list -o table
+[source,bash]
+----
+az disk list -o table
+----
 
 .Listado de discos en forma de tabla
 image::az-disk-list-table.png[role="thumb", align="center"]
 
 Para ver solamente los discos que son SSD: 
 
- az disk list --query "[?sku.name=='StandardSSD_LRS']" -o table
+[source,bash]
+----
+az disk list --query "[?sku.name=='StandardSSD_LRS']" -o table
+----
 
 .Listado de discos tipo Standard SSD - forma de tabla
 image::az-disk-ssd-table.png[role="thumb", align="center"]
@@ -181,7 +232,10 @@ El comando `az disk update` permite cambiar el tipo de disco y el tamaño. Tendr
 
 Ejemplo que cambia el disco a tipo HDD: 
 
- az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9664d5aa3df6f61448a694e 	   -g HMS24-JJCANADA-GITLAB  --no-wait
+[source,bash]
+----
+az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9664d5aa3df6f61448a694e 	   -g HMS24-JJCANADA-GITLAB  --no-wait
+----
 
 [WARNING]
 ====

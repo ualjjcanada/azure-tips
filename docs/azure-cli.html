@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="book toc2 toc-right">
+<body class="book toc2 toc-right doc">
 <div id="header">
 <h1>Azure Tips. Azure CLI</h1>
 <div id="toc" class="toc2">
@@ -446,8 +446,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_introducción">Introducción</a></li>
 <li><a href="#_instalar_azure_cli">Instalar Azure CLI</a></li>
+<li><a href="#_autenticación">Autenticación</a>
+<ul class="sectlevel2">
 <li><a href="#_az_login">az login</a></li>
 <li><a href="#_az_account_show">az account show</a></li>
+</ul>
+</li>
 <li><a href="#_máquinas_virtuales">Máquinas virtuales</a>
 <ul class="sectlevel2">
 <li><a href="#_az_vm_list">az vm list</a></li>
@@ -470,7 +474,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>Herramientas y Métodos en Ingeniería del Software
-Version 1.0, Marzo-2023.
+Version 2.0, Marzo-2024.
 Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</p>
 </div>
 </div>
@@ -489,9 +493,9 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 <div class="paragraph">
 <p>La instalación recomendada en Windows, con Chocolatey:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>choco install azure-cli -y</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">choco install azure-cli -y</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -513,11 +517,13 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 </div>
 </div>
 <div class="sect1">
-<h2 id="_az_login">az login</h2>
+<h2 id="_autenticación">Autenticación</h2>
 <div class="sectionbody">
-<div class="literalblock">
+<div class="sect2">
+<h3 id="_az_login">az login</h3>
+<div class="listingblock">
 <div class="content">
-<pre>az login</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az login</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -530,13 +536,11 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 <div class="title">Fig. 1. Login correcto con Azure CLI</div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_az_account_show">az account show</h2>
-<div class="sectionbody">
-<div class="literalblock">
+<div class="sect2">
+<h3 id="_az_account_show">az account show</h3>
+<div class="listingblock">
 <div class="content">
-<pre>az account show</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az account show</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -550,14 +554,15 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_máquinas_virtuales">Máquinas virtuales</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_az_vm_list">az vm list</h3>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az vm list -d -o table</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm list -d -o table</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -569,17 +574,17 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 <div class="paragraph">
 <p>Para ver solamente las VMs que están encendidas:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az vm list -d --query "[?powerState=='VM running']" -o table</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm list -d --query "[?powerState=='VM running']" -o table</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Para ver un listado detallado de VMs en formato JSON:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az resource list --resource-type "Microsoft.Compute/virtualMachines"</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az resource list --resource-type "Microsoft.Compute/virtualMachines"</code></pre>
 </div>
 </div>
 </div>
@@ -588,9 +593,9 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 <div class="paragraph">
 <p>Iniciar una máquina virtual detenida.</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az vm start -g ResourceGroupNAME -n MyVmNAME --no-wait</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm start -g ResourceGroupNAME -n MyVmNAME --no-wait</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -599,17 +604,17 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 <div class="paragraph">
 <p>Ejemplo:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az vm start -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm start -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Tras ello, vemos el listado de VMs:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az vm list -d -o table</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm list -d -o table</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -624,9 +629,9 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 <div class="paragraph">
 <p>Apaga una máquina encendida.</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az vm stop -g ResourceGroupNAME -n MyVmNAME --no-wait</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm stop -g ResourceGroupNAME -n MyVmNAME --no-wait</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -644,10 +649,10 @@ Una máquina parada (stopped) sigue asignada, y por tanto <strong>se aplican car
 <div class="paragraph">
 <p>Ejemplo:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az vm stop -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
-az vm stop -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm stop -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+az vm stop -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -662,18 +667,18 @@ az vm stop -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</pre>
 <div class="paragraph">
 <p>Desasigna una máquina virtual para que los recursos informáticos dejen de estar asignados (ya no se aplican cargos). El estado cambiará de "Detenido" a "Detenido (desasignado)".</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az vm deallocate -g MyResourceGroupNAME -n MyVmNAME --no-wait</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm deallocate -g MyResourceGroupNAME -n MyVmNAME --no-wait</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Ejemplo:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az vm deallocate -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
-az vm deallocate -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm deallocate -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+ az vm deallocate -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -708,9 +713,9 @@ Para apagar una VM <strong>no es necesario pasar por el estado de parada (stoppe
 </div>
 <div class="sect2">
 <h3 id="_az_disk_list">az disk list</h3>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az disk list -o table</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az disk list -o table</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -722,9 +727,9 @@ Para apagar una VM <strong>no es necesario pasar por el estado de parada (stoppe
 <div class="paragraph">
 <p>Para ver solamente los discos que son SSD:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az disk list --query "[?sku.name=='StandardSSD_LRS']" -o table</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az disk list --query "[?sku.name=='StandardSSD_LRS']" -o table</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -772,9 +777,9 @@ Para apagar una VM <strong>no es necesario pasar por el estado de parada (stoppe
 <div class="paragraph">
 <p>Ejemplo que cambia el disco a tipo HDD:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9664d5aa3df6f61448a694e 	   -g HMS24-JJCANADA-GITLAB  --no-wait</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9664d5aa3df6f61448a694e 	   -g HMS24-JJCANADA-GITLAB  --no-wait</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -798,8 +803,102 @@ Tampoco se permite reducir el tamaño del disco, por posible pérdida de datos: 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-02 16:20:26 +0100
+Last updated 2024-03-02 16:30:22 +0100
 </div>
 </div>
+<style>
+    .doc .listingblock > .content {
+      position: relative;
+    }
+
+    .doc .listingblock code[data-lang]::before {
+      content: none;
+    }
+
+    .doc .source-toolbox {
+      display: flex;
+      position: absolute;
+      visibility: hidden;
+      top: 0.25rem;
+      right: 0.5rem;
+      color: #808080;
+      white-space: nowrap;
+      font-size: 0.85em;
+    }
+
+    .doc .listingblock:hover .source-toolbox {
+      visibility: visible;
+    }
+
+    .doc .source-toolbox .source-lang {
+      font-family: "Droid Sans Mono", "DejaVu Sans Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.075em;
+    }
+
+    .doc .source-toolbox > :not(:last-child)::after {
+      content: "|";
+      letter-spacing: 0;
+      padding: 0 1ch;
+    }
+
+    .doc .source-toolbox .copy-button {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: none;
+      border: none;
+      color: inherit;
+      outline: none;
+      padding: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      width: 1em;
+      height: 1em;
+    }
+
+    .doc .source-toolbox .copy-icon {
+      flex: none;
+      width: inherit;
+      height: inherit;
+      filter: invert(50.2%);
+      margin-top: 0.05em;
+    }
+
+    .doc .source-toolbox .copy-toast {
+      flex: none;
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      margin-top: 1em;
+      border-radius: 0.25em;
+      padding: 0.5em;
+      cursor: auto;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.75s;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+    }
+
+    .doc .source-toolbox .copy-toast::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 1em;
+      height: 1em;
+      border: 0.55em solid transparent;
+      border-left-color: rgba(0, 0, 0, 0.8);
+      transform: rotate(-90deg) translateX(50%) translateY(50%);
+      transform-origin: left;
+    }
+
+    .doc .source-toolbox .copy-button.clicked .copy-toast {
+      opacity: 1;
+      transition: none;
+    }
+    </style>
+    <script src="copy-to-clipboard.js"></script>
 </body>
 </html>
