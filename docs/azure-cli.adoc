@@ -28,7 +28,7 @@ Nombre y título del trabajo
 = Azure Tips. Azure CLI
 
 Herramientas y Métodos en Ingeniería del Software
-Version 1.0, Marzo-2023.
+Version 2.0, Marzo-2024.
 Joaquín Cañadas <jjcanada@ual.es>
 
 // Entrar en modo no numerado de apartados
@@ -74,8 +74,9 @@ Muestra la información del usuario con el que estás conectado y la suscripció
 .Propiedades de la cuenta de Azure
 image::az-account-show.png[role="thumb", align="center"]
 
+== Máquinas virtuales
 
-== az vm list
+=== az vm list
 
  az vm list -d -o table
 
@@ -91,7 +92,7 @@ Para ver un listado detallado de VMs en formato JSON:
  az resource list --resource-type "Microsoft.Compute/virtualMachines"
 
 
-== az vm start
+=== az vm start
 
 Iniciar una máquina virtual detenida.
 
@@ -111,7 +112,7 @@ Tras ello, vemos el listado de VMs:
 image::az-vm-list2-table.png[role="thumb", align="center"]
 
 
-== az vm stop
+=== az vm stop
 
 Apaga una máquina encendida.
 
@@ -128,7 +129,7 @@ Ejemplo:
 image::az-vm-list-2stop-table.png[role="thumb", align="center"]
 
 
-== az vm deallocate
+=== az vm deallocate
 
 Desasigna una máquina virtual para que los recursos informáticos dejen de estar asignados (ya no se aplican cargos). El estado cambiará de "Detenido" a "Detenido (desasignado)".
 
@@ -143,3 +144,47 @@ Ejemplo:
 image::az-vm-list-deallocated-table.png[role="thumb", align="center"]
 
 IMPORTANT: Para apagar una VM *no es necesario pasar por el estado de parada (stopped)*, sino que puede ser *directamente parada y desasignada* con `az vm deallocate`.
+
+== Discos
+
+Toda máquina virtual tendrá el disco del Sistema Operativo, y puede tener discos adicionales. Aunque apaguemos la máquina virtual, nos siguen cobrando por el disco, porque este sigue estando asignado. La única opción para que no nos cobren sería eliminarlo.
+
+Por ello puede ser recomendable cambiar su tipo de SSD a HDD, o su tamaño, para evitar cargos innecesarios.
+
+=== az disk list
+
+ az disk list -o table
+
+.Listado de discos en forma de tabla
+image::az-disk-list-table.png[role="thumb", align="center"]
+
+Para ver solamente los discos que son SSD: 
+
+ az disk list --query "[?sku.name=='StandardSSD_LRS']" -o table
+
+.Listado de discos tipo Standard SSD - forma de tabla
+image::az-disk-ssd-table.png[role="thumb", align="center"]
+
+=== az disk update
+
+[IMPORTANT]
+====
+Para cambiar de tipo de disco la *máquina virtual debe está desasignada*.
+====
+
+El comando `az disk update` permite cambiar el tipo de disco y el tamaño. Tendrá los siguietnes parámetros:
+
+- `--sku`: el tipo de disco (Standard_LRS, StandardSSD_LRS, Premium_LRS)
+- `--name`: el nombre del disco
+- `--resource-group`, `-g`: el grupo de recursos
+- `--size-gb`: el tamaño del disco
+
+Ejemplo que cambia el disco a tipo HDD: 
+
+ az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9664d5aa3df6f61448a694e 	   -g HMS24-JJCANADA-GITLAB  --no-wait
+
+[WARNING]
+====
+Solo se puede cambiar de tipo de disco *dos veces al día*.
+Tampoco se permite reducir el tamaño del disco, por posible pérdida de datos:  `Reducing disk/snapshot size is not supported in Azure to prevent data loss.`
+====

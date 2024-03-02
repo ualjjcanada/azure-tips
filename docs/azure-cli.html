@@ -448,10 +448,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_instalar_azure_cli">Instalar Azure CLI</a></li>
 <li><a href="#_az_login">az login</a></li>
 <li><a href="#_az_account_show">az account show</a></li>
+<li><a href="#_máquinas_virtuales">Máquinas virtuales</a>
+<ul class="sectlevel2">
 <li><a href="#_az_vm_list">az vm list</a></li>
 <li><a href="#_az_vm_start">az vm start</a></li>
 <li><a href="#_az_vm_stop">az vm stop</a></li>
 <li><a href="#_az_vm_deallocate">az vm deallocate</a></li>
+</ul>
+</li>
+<li><a href="#_discos">Discos</a>
+<ul class="sectlevel2">
+<li><a href="#_az_disk_list">az disk list</a></li>
+<li><a href="#_az_disk_update">az disk update</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -541,8 +551,10 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 </div>
 </div>
 <div class="sect1">
-<h2 id="_az_vm_list">az vm list</h2>
+<h2 id="_máquinas_virtuales">Máquinas virtuales</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_az_vm_list">az vm list</h3>
 <div class="literalblock">
 <div class="content">
 <pre>az vm list -d -o table</pre>
@@ -571,10 +583,8 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_az_vm_start">az vm start</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_az_vm_start">az vm start</h3>
 <div class="paragraph">
 <p>Iniciar una máquina virtual detenida.</p>
 </div>
@@ -609,10 +619,8 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 <div class="title">Fig. 4. Listado de VMs con VM SonarQube encendida</div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_az_vm_stop">az vm stop</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_az_vm_stop">az vm stop</h3>
 <div class="paragraph">
 <p>Apaga una máquina encendida.</p>
 </div>
@@ -649,10 +657,8 @@ az vm stop -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</pre>
 <div class="title">Fig. 5. Listado de VMs tras parar 2 máquinas</div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_az_vm_deallocate">az vm deallocate</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_az_vm_deallocate">az vm deallocate</h3>
 <div class="paragraph">
 <p>Desasigna una máquina virtual para que los recursos informáticos dejen de estar asignados (ya no se aplican cargos). El estado cambiará de "Detenido" a "Detenido (desasignado)".</p>
 </div>
@@ -691,9 +697,108 @@ Para apagar una VM <strong>no es necesario pasar por el estado de parada (stoppe
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_discos">Discos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Toda máquina virtual tendrá el disco del Sistema Operativo, y puede tener discos adicionales. Aunque apaguemos la máquina virtual, nos siguen cobrando por el disco, porque este sigue estando asignado. La única opción para que no nos cobren sería eliminarlo.</p>
+</div>
+<div class="paragraph">
+<p>Por ello puede ser recomendable cambiar su tipo de SSD a HDD, o su tamaño, para evitar cargos innecesarios.</p>
+</div>
+<div class="sect2">
+<h3 id="_az_disk_list">az disk list</h3>
+<div class="literalblock">
+<div class="content">
+<pre>az disk list -o table</pre>
+</div>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-disk-list-table.png" alt="az disk list table">
+</div>
+<div class="title">Fig. 7. Listado de discos en forma de tabla</div>
+</div>
+<div class="paragraph">
+<p>Para ver solamente los discos que son SSD:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az disk list --query "[?sku.name=='StandardSSD_LRS']" -o table</pre>
+</div>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/az-disk-ssd-table.png" alt="az disk ssd table">
+</div>
+<div class="title">Fig. 8. Listado de discos tipo Standard SSD - forma de tabla</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_az_disk_update">az disk update</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Para cambiar de tipo de disco la <strong>máquina virtual debe está desasignada</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>El comando <code>az disk update</code> permite cambiar el tipo de disco y el tamaño. Tendrá los siguietnes parámetros:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>--sku</code>: el tipo de disco (Standard_LRS, StandardSSD_LRS, Premium_LRS)</p>
+</li>
+<li>
+<p><code>--name</code>: el nombre del disco</p>
+</li>
+<li>
+<p><code>--resource-group</code>, <code>-g</code>: el grupo de recursos</p>
+</li>
+<li>
+<p><code>--size-gb</code>: el tamaño del disco</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ejemplo que cambia el disco a tipo HDD:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9664d5aa3df6f61448a694e 	   -g HMS24-JJCANADA-GITLAB  --no-wait</pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Solo se puede cambiar de tipo de disco <strong>dos veces al día</strong>.
+Tampoco se permite reducir el tamaño del disco, por posible pérdida de datos:  <code>Reducing disk/snapshot size is not supported in Azure to prevent data loss.</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-11 01:24:23 +0100
+Last updated 2024-03-02 16:20:26 +0100
 </div>
 </div>
 </body>
