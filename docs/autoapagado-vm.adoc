@@ -1,0 +1,60 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Selenium end-to-end testing
+:doctype: book
+:icons: font
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips. Autoapagado de VM en Azure
+Cloud Computing - Máster en Tecnologías y Aplicaciones en Ingeniería Informática
+José Joaquín Cañadas <jjcanada@ual.es> y Manuel Torres <mtorres@ual.es>
+
+// Entrar en modo no numerado de apartados
+:numbered!: 
+
+[abstract]
+////
+COLOCA A CONTINUACIÓN EL RESUMEN
+////
+
+== Introducción
+
+
+En este tutorial se indica cómo configurar el autoapagado de una máquina virtual en Azure. Esto es útil para evitar que la máquina virtual esté encendida y consuma recursos innecesarios, lo que puede resultar en costos adicionales.
+
+== Pasos
+
+En Azure, accede a la máquina virtual que deseas configurar para el autoapagado. En la sección de configuración, busca la opción de "Autoapagado" o "Auto-shutdown".
+
+.Autoapagado de una VM
+image::autoapagado-vm.png[role="thumb", align="center", width=100%]
+
+[start=2]
+. Activa el autoapagado. Configura la hora en que deseas que la máquina virtual se apague automáticamente, así como la zona horaria correspondiente. También puedes configurar una notificación por correo electrónico para recibir un aviso antes de que la máquina virtual se apague.
+
+****
+Más información
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm?tabs=portal
+
+****

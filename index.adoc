@@ -45,6 +45,8 @@ Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Unive
 
 . link:docs/alertas-consumo-azure.html[Añadir alertas de consumo (budgets) en Azure]
 
+. link:docs/autoapagado-vm.html[Autoapagado de VM en Azure]
+
 . link:docs/agregar-administrador.html[Agregar o cambiar los administradores de la suscripción de Azure]
 
 . link:docs/mover-grupos-recursos-entre-suscripciones.html[Mover los grupos de recursos de una suscripción a otra]

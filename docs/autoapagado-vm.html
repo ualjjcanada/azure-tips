@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.22">
 <meta name="keywords" content="Selenium end-to-end testing">
-<title>Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes</title>
+<meta name="author" content="Cloud Computing - Máster en Tecnologías y Aplicaciones en Ingeniería Informática">
+<title>Azure Tips. Autoapagado de VM en Azure</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,56 +437,69 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="book">
+<body class="book toc2 toc-right">
 <div id="header">
-<h1>Azure para Estudiantes: Tutoriales para la gestión de las suscripciones Azure para Estudiantes</h1>
+<h1>Azure Tips. Autoapagado de VM en Azure</h1>
+<div class="details">
+<span id="author" class="author">Cloud Computing - Máster en Tecnologías y Aplicaciones en Ingeniería Informática</span><br>
+<span id="revdate">José Joaquín Cañadas &lt;jjcanada@ual.es&gt; y Manuel Torres &lt;mtorres@ual.es&gt;</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Tabla de contenidos</div>
+<ul class="sectlevel1">
+<li><a href="#_introducción">Introducción</a></li>
+<li><a href="#_pasos">Pasos</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_introducción">Introducción</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;, Manuel Torres &lt;<a href="mailto:mtorres@ual.es">mtorres@ual.es</a>&gt;<br>
-Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Universidad de Almería</p>
+<p>En este tutorial se indica cómo configurar el autoapagado de una máquina virtual en Azure. Esto es útil para evitar que la máquina virtual esté encendida y consuma recursos innecesarios, lo que puede resultar en costos adicionales.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pasos">Pasos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>En Azure, accede a la máquina virtual que deseas configurar para el autoapagado. En la sección de configuración, busca la opción de "Autoapagado" o "Auto-shutdown".</p>
+</div>
+<div class="imageblock text-center thumb">
+<div class="content">
+<img src="images/autoapagado-vm.png" alt="autoapagado vm" width="100%">
+</div>
+<div class="title">Fig. 1. Autoapagado de una VM</div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="2">
 <li>
-<p><a href="docs/crear-suscripcion-AzureParaEstudiantes.html">Creación de la suscripción Azure para Estudiantes</a></p>
-</li>
-<li>
-<p><a href="docs/revisar-saldo-AzureParaEstudiantes.html">Revisar el saldo de la suscripción Azure para Estudiantes</a></p>
-</li>
-<li>
-<p><a href="docs/alertas-consumo-azure.html">Añadir alertas de consumo (budgets) en Azure</a></p>
-</li>
-<li>
-<p><a href="docs/autoapagado-vm.html">Autoapagado de VM en Azure</a></p>
-</li>
-<li>
-<p><a href="docs/agregar-administrador.html">Agregar o cambiar los administradores de la suscripción de Azure</a></p>
-</li>
-<li>
-<p><a href="docs/mover-grupos-recursos-entre-suscripciones.html">Mover los grupos de recursos de una suscripción a otra</a></p>
-</li>
-<li>
-<p><a href="docs/asignar-ip-dinamica.html">Modificar la IP de estática a dinámica en una VM</a></p>
-</li>
-<li>
-<p><a href="docs/azure-cli.html">Usar Azure CLI para interactuar desde el terminal</a></p>
-</li>
-<li>
-<p><a href="docs/azure-troubleshoot.html">Azure troubleshooting: Errores habutuales y soluciones</a></p>
+<p>Activa el autoapagado. Configura la hora en que deseas que la máquina virtual se apague automáticamente, así como la zona horaria correspondiente. También puedes configurar una notificación por correo electrónico para recibir un aviso antes de que la máquina virtual se apague.</p>
 </li>
 </ol>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
-<p><span class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Microsoft Azure Logo" width="30%"></span></p>
+<p>Más información</p>
 </div>
-<div class="paragraph">
-<p><a href="https://github.com/ualjjcanada/azure-tips"><em>Edit on GitHub</em></a>
-<span class="image"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Mark" width="5%"></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm?tabs=portal" class="bare">https://learn.microsoft.com/en-us/azure/virtual-machines/auto-shutdown-vm?tabs=portal</a></p>
+</li>
+</ul>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2025-05-19 01:29:41 +0200
 </div>
 </div>
 </body>
