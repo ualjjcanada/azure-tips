@@ -103,7 +103,7 @@ image::Azure-verificacionAcademica.png[role="thumb", align="center", width=600, 
 image::Azure-Sign_up01.png[role="thumb", align="center", width=700, pdfwidth=60%]
 
 [start=5]
-. Mas datos del perfil: CIF de empresa (`Q5450008G`), Dirección (`Ctra. Sacramento s/n`), Ciudad (`Almería`), Provincia (`Almería`), Código postal (`04120`).
+. Mas datos del perfil: CIF de empresa (`ESQ5450008G`), Dirección (`Ctra. Sacramento s/n`), Ciudad (`Almería`), Provincia (`Almería`), Código postal (`04120`).
 
 .Azure para estudiantes: Perfil de estudiante (2)
 image::Azure-Sign_up02.png[role="thumb", align="center", width=700, pdfwidth=60%]
