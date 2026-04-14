@@ -47,10 +47,13 @@ Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Unive
 
 . link:docs/autoapagado-vm.html[Autoapagado de VM en Azure]
 
+. link:https://learn.microsoft.com/es-es/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu[Documentación oficial: Creación de una máquina virtual Linux en Azure Portal]
+
+. link:https://learn.microsoft.com/es-es/azure/virtual-machines/windows/quick-create-portal[Documentación oficial: Creación de una máquina virtual de Windows en Azure Portal]
+
 . link:docs/agregar-administrador.html[Agregar o cambiar los administradores de la suscripción de Azure]
 
 . link:docs/mover-grupos-recursos-entre-suscripciones.html[Mover los grupos de recursos de una suscripción a otra]
-
 
 . link:docs/asignar-ip-dinamica.html[Modificar la IP de estática a dinámica en una VM]
 

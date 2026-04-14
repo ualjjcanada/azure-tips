@@ -66,6 +66,8 @@ Enlaces a la https://learn.microsoft.com/es-es/cli/azure/install-azure-cli[insta
 
 Tras la instalación, abre tu terminal favorito y ejecuta los comandos siguientes.
 
+NOTE: En caso de dudas, consulta la documentación oficial: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
+
 == Autenticación
 
 === az login
@@ -80,6 +82,25 @@ Abre automáticamente un navegador y te permite loguearte con tus credenciales.
 .Login correcto con Azure CLI
 image::az-login.png[role="thumb", align="center"]
 
+En caso de estar en un ordenador del Aula de practicas, es recomendable usar el parámetro `--use-device-code` para evitar problemas con el navegador:
+
+[source,bash]
+----
+az login --use-device-code
+----
+
+Te da un código tipo:
+
+[source,bash]
+----
+To sign in, use a web browser to open https://microsoft.com/devicelogin
+and enter the code XXXX-XXXX
+---- 
+
+Abre automáticamente un navegador con la dirección https://microsoft.com/devicelogin y pega el código. Esto te permite loguearte con tus credenciales. 
+
+NOTE: En caso de problemas de login, consulta la documentación oficial: https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-interactively?view=azure-cli-latest
+
 === az account show
 
 [source,bash]
@@ -90,6 +111,79 @@ Muestra la información del usuario con el que estás conectado y la suscripció
 
 .Propiedades de la cuenta de Azure
 image::az-account-show.png[role="thumb", align="center"]
+
+=== az logout
+
+Para cerrar sesión:
+[source,bash]
+----
+az logout
+----
+
+== Regiones soportadas
+
+En Azure hay dos “capas” respecto a las regiones:
+
+- Qué regiones conoce/soporta tu suscripción (lista general para tu suscripción).
+- Qué regiones te *deja realmente desplegar* (normalmente por *Azure Policy “Allowed locations / Allowed resource deployment regions”* o restricciones similares). Para VMs, además, puedes comprobarlo de la siguiente forma: 
+
+=== Listar todas las regiones
+[source,bash]
+----
+az account list-locations -o table
+----
+
+Si quieres listar regiones con nombre interno y nombre “bonito”:
+[source,bash]
+----
+az account list-locations --query "[].{Region:name,DisplayName:displayName}" -o table
+----
+
+Y si quieres filtrar solo regiones “Physical” (evita algunas entradas lógicas):
+[source,bash]
+----
+az account list-locations --query "[?metadata.regionType=='Physical'].{Region:name,DisplayName:displayName}" -o table
+----
+
+=== Listar solo regiones permitidas
+
+A continuación, vamos a listar solo las regiones que *realmente* nos permiten desplegar VMs, es decir, las regiones que no están restringidas por *Azure Policy* u otras restricciones. Los comandos están preparados para ser lanzados en *PowerShell*: 
+
+. Obtén el id de tu suscripción y almacénalo en la variable $SUB_ID:
+
+[source,bash]
+----
+$ $SUB_ID = az account show --query id -o tsv
+----
+
+Si estás en *Windows* con Git Bash, el comando es:
+
+[source,bash]
+----
+$ export SUB_ID=$(az account show --query id -o tsv)
+----
+
+[start=2]
+. Extrae todas las regiones permitidas definidas en policies tipo `listOfAllowedLocations`:
+
+[source,bash]
+----
+$ az policy assignment list --query "[?parameters.listOfAllowedLocations].parameters.listOfAllowedLocations.value[]"   -o tsv
+
+----
+
+Esto devuelve algo como:
+[.terminal]
+----
+francecentral
+germanywestcentral
+norwayeast
+spaincentral
+swedencentral
+----
+
+Esto indica que solo podemos desplegar VMs en estas regiones, aunque la lista general de regiones de Azure sea mucho más amplia.
+
 
 == Máquinas virtuales
 
@@ -242,62 +336,6 @@ az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9
 Solo se puede cambiar de tipo de disco *dos veces al día*.
 Tampoco se permite reducir el tamaño del disco, por posible pérdida de datos:  `Reducing disk/snapshot size is not supported in Azure to prevent data loss.`
 ====
-
-== Regiones soportadas
-
-En Azure hay dos “capas” respecto a las regiones:
-
-- Qué regiones conoce/soporta tu suscripción (lista general para tu suscripción).
-- Qué regiones te *deja realmente desplegar* (normalmente por *Azure Policy “Allowed locations / Allowed resource deployment regions”* o restricciones similares). Para VMs, además, puedes comprobarlo de la siguiente forma: 
-
-=== Listar todas las regiones
-[source,bash]
-----
-az account list-locations -o table
-----
-
-Si quieres listar regiones con nombre interno y nombre “bonito”:
-[source,bash]
-----
-az account list-locations --query "[].{Region:name,DisplayName:displayName}" -o table
-----
-
-Y si quieres filtrar solo regiones “Physical” (evita algunas entradas lógicas):
-[source,bash]
-----
-az account list-locations --query "[?metadata.regionType=='Physical'].{Region:name,DisplayName:displayName}" -o table
-----
-
-=== Listar solo regiones permitidas
-
-A continucación, vamos a listar solo las regiones que *realmente* nos permiten desplegar VMs, es decir, las regiones que no están restringidas por *Azure Policy* u otras restricciones. Los comandos están preparados para ser lanzados en *PowerShell*: 
-
-. Obtén el id de tu suscripción y almacénalo en la variable $SUB_ID:
-[source,bash]
-----
-$SUB_ID = az account show --query id -o tsv
-----
-[start=2]
-. Extrae todas las  regiones permitidas definidas en policies tipo `listOfAllowedLocations`:
-[source,bash]
-----
-az policy assignment list `
-  --scope "/subscriptions/$SUB_ID" `
-  --query "[?parameters.listOfAllowedLocations].parameters.listOfAllowedLocations.value[]" `
-  -o tsv | Sort-Object -Unique
-----
-
-Esto devuelve algo como:
-[.terminal]
-----
-francecentral
-germanywestcentral
-norwayeast
-spaincentral
-swedencentral
-----
-
-Esto indica que solo podemos desplegar VMs en estas regiones, aunque la lista general de regiones de Azure sea mucho más amplia.
 
 
 
