@@ -242,3 +242,62 @@ az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9
 Solo se puede cambiar de tipo de disco *dos veces al día*.
 Tampoco se permite reducir el tamaño del disco, por posible pérdida de datos:  `Reducing disk/snapshot size is not supported in Azure to prevent data loss.`
 ====
+
+== Regiones soportadas
+
+En Azure hay dos “capas” respecto a las regiones:
+
+- Qué regiones conoce/soporta tu suscripción (lista general para tu suscripción).
+- Qué regiones te *deja realmente desplegar* (normalmente por *Azure Policy “Allowed locations / Allowed resource deployment regions”* o restricciones similares). Para VMs, además, puedes comprobarlo de la siguiente forma: 
+
+=== Listar todas las regiones
+[source,bash]
+----
+az account list-locations -o table
+----
+
+Si quieres listar regiones con nombre interno y nombre “bonito”:
+[source,bash]
+----
+az account list-locations --query "[].{Region:name,DisplayName:displayName}" -o table
+----
+
+Y si quieres filtrar solo regiones “Physical” (evita algunas entradas lógicas):
+[source,bash]
+----
+az account list-locations --query "[?metadata.regionType=='Physical'].{Region:name,DisplayName:displayName}" -o table
+----
+
+=== Listar solo regiones permitidas
+
+A continucación, vamos a listar solo las regiones que *realmente* nos permiten desplegar VMs, es decir, las regiones que no están restringidas por *Azure Policy* u otras restricciones. Los comandos están preparados para ser lanzados en *PowerShell*: 
+
+. Obtén el id de tu suscripción y almacénalo en la variable $SUB_ID:
+[source,bash]
+----
+$SUB_ID = az account show --query id -o tsv
+----
+[start=2]
+. Extrae todas las  regiones permitidas definidas en policies tipo `listOfAllowedLocations`:
+[source,bash]
+----
+az policy assignment list `
+  --scope "/subscriptions/$SUB_ID" `
+  --query "[?parameters.listOfAllowedLocations].parameters.listOfAllowedLocations.value[]" `
+  -o tsv | Sort-Object -Unique
+----
+
+Esto devuelve algo como:
+[.terminal]
+----
+francecentral
+germanywestcentral
+norwayeast
+spaincentral
+swedencentral
+----
+
+Esto indica que solo podemos desplegar VMs en estas regiones, aunque la lista general de regiones de Azure sea mucho más amplia.
+
+
+

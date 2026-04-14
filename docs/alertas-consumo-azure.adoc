@@ -41,7 +41,7 @@ COLOCA A CONTINUACIÓN EL RESUMEN
 
 En este tutorial se indica cómo añadir alertas de consumo para recibir un email cuando tu consumo de crédito Azure supere un determinado gasto. Esto te ayudará a controlar tu gasto.
 
-IMPORTANT: En el curso 2023 esta opción *no estuvo* disponible para las cuentas Azure para estudiantes. En el 2024 parece que *de nuevo está disponible!!!*.
+IMPORTANT: En el curso 2023 esta opción *no estuvo* disponible para las cuentas Azure para estudiantes. En el 2024 parece que *de nuevo está disponible!!!*. Desde 2025 en adelante esta opción ya no está disponible, por tanto se recomienda configurar el https://ualjjcanada.github.io/azure-tips/docs/autoapagado-vm.html[autoapagado de las máquinas virtuales] para evitar gastos innecesarios.
 
 == Pasos
 
