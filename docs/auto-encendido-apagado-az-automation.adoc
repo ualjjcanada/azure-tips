@@ -1,0 +1,96 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Selenium end-to-end testing
+:doctype: book
+:icons: font
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips. Auto encendido y apagado de VM en Azure
+HMIS - Grado Ingeniería Informática
+Cloud Computing - Máster en Tecnologías y Aplicaciones en Ingeniería Informática
+José Joaquín Cañadas <jjcanada@ual.es> y Manuel Torres <mtorres@ual.es>
+
+// Entrar en modo no numerado de apartados
+:numbered: 
+
+[abstract]
+////
+COLOCA A CONTINUACIÓN EL RESUMEN
+////
+
+== Introducción
+
+En este tutorial se indica cómo configurar el autoencendio y autoapagado de una máquina virtual en Azure. Esto es útil para evitar que la máquina virtual esté encendida y consuma recursos innecesarios, lo que puede resultar en costos adicionales.
+
+Se describe como realizarlo con Logic Apps (consumption). Logic Apps es un servicio de Azure que permite automatizar flujos de trabajo y procesos empresariales.
+
+== Pasos 
+
+. *Crear la Logic app (consumption)*. 
+
+En el Portal Azure: _Logic Apps -> Create_
+
+[NOTE]
+====
+Elige el mismo grupo de recursos y la  misma región que la VM, para que se pueda acceder a ella desde la Logic App.
+====
+
+.Creacion de la Logic App (consumption)
+image::automation/logic-app-create-consuption.png[role="thumb", align="center", width=60%]
+
+
+.Parámetros de la Logic App (consumption)
+image::automation/logic-app-create-consuption2.png[role="thumb", align="center", width=60%]
+
+[start=2]
+. *Configurar el disparador de la Logic App*.
+
+.Diseñador del disparador de la Logic App
+image::automation/logic-app-create-consuption3.png[role="thumb", align="center", width=90%]
+
+
+.Parámetros del disparador
+image::automation/logic-app-recurrence-parameters.png[role="thumb", align="center", width=90%]
+
+[start=3]
+. *Añadir acciones a la Logic App: Start Virtual Machine*.
+
+.Parámetros del disparador
+image::automation/logic-app-start-vm-parameters.png[role="thumb", align="center", width=90%]
+
+[start=4]
+. *Probar la acción: Run history*.
+
+.Probar la accion: Run history
+image::automation/logic-app-start-vm-run.png[role="thumb", align="center", width=90%]
+
+Repetir los pasos para Stop Virtual Machine, para apagar la VM. En este caso, se puede configurar la hora de apagado de la VM, por ejemplo, a las 20:00 horas.
+
+
+== Cómo se factura Logic Apps 
+
+La facturación de Logic Apps se basa en el consumo, lo que significa que solo pagas por las acciones y ejecuciones que realizas.
+
+Actualmente Microsoft incluye por suscripción de forma gratuita un número limitado de ejecuciones de Logic Apps, que suele ser suficiente para la mayoría de los escenarios de automatización. Por ejemplo, si configuras una Logic App para encender y apagar una máquina virtual una vez al día, el número de ejecuciones será muy bajo y, por lo tanto, no incurrirás en costos adicionales significativos.
+
+De hecho, el ahorro obtenido por apagar diariamente la VM suele ser muchísimo mayor que cualquier coste potencial de Logic Apps, por lo que es una solución muy rentable para gestionar el encendido y apagado automático de máquinas virtuales en Azure.
