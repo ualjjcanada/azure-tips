@@ -37,6 +37,7 @@ Joaquín Cañadas <jjcanada@ual.es>, Manuel Torres <mtorres@ual.es>
 ////
 COLOCA A CONTINUACIÓN EL RESUMEN
 ////
+(_Deprecated_)
 En este tutorial se indica cómo modificar la IP de una máquina vitual de IP estática a IP dinámica, con el objetivo de que no nos cobren por reservar una IP cuando la máquina virtual esté apagada.
 
 .Objetivos

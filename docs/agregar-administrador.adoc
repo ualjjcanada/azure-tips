@@ -70,7 +70,12 @@ image::https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/med
 
 Transcurridos unos instantes, al usuario se le asigna el rol Propietario en el ámbito de la suscripción.
 
-== Añadir un coadministrador 
+== Añadir un coadministrador (_deprecated_)
+
+[WARNING]
+====
+A partir del 31 de agosto de 2024, los roles de administrador clásico de Azure (junto con los recursos clásicos de Azure y Azure Service Manager) se retiran y ya no se admiten. 
+====
 
 Microsoft recomienda que administres el acceso a los recursos mediante roles, como acabamos de ver. No obstante, existe un segundo método que se describe a continuación que añade un coadministrador clásico. Este segundo método es útil si todavía usas el modelo de implementación clásico y administras los recursos clásicos mediante el módulo de PowerShell de Azure Service Management.
 
