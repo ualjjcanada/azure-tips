@@ -47,7 +47,7 @@ Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Unive
 
 . link:docs/autoapagado-vm.html[Autoapagado de VM en Azure]
 
-. link:docs/autoencendido-apagado-az-automation.html[Autoencendido y autoapagado de VM en Azure (_recomendado_)]
+. link:docs/auto-encendido-apagado-vm.html[Autoencendido y autoapagado de VM en Azure (_recomendado_)]
 
 
 . link:https://learn.microsoft.com/es-es/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu[Documentación oficial: Creación de una máquina virtual Linux en Azure Portal]

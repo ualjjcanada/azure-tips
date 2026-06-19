@@ -28,7 +28,7 @@ Nombre y título del trabajo
 = Azure Tips. Revisar el saldo de tu suscripción Azure para Estudiantes
 
 Herramientas y Métodos en Ingeniería del Software
-Version 1.0, Junio-2020.
+Version 1.1, Junio-2026.
 Joaquín Cañadas <jjcanada@ual.es>
 
 // Entrar en modo no numerado de apartados
@@ -44,7 +44,7 @@ Es importante que revises regularmente el saldo restante en tu suscripción Azur
 
 La cuenta de Azure for Students te ofrece 100 USD de crédito y una cantidad limitada de servicios gratuitos durante 12 meses. Cuando hayas agotado el crédito disponible o hayan transcurrido 12 meses, se deshabilitará tu suscripción de Azure. 
 
-== Revisar el saldo
+== Revisar el saldo (_deprecated_)
 
 Puedes comprobar el crédito que te queda en el https://www.microsoftazuresponsorships.com/balance[portal de Patrocinio de Microsoft Azure].
 
@@ -59,6 +59,19 @@ image::https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/med
 . Para comprobar el uso de los servicios que consumen el crédito de Azure, selecciona Usage (Uso) en el menú de navegación de la izquierda y, luego, selecciona la suscripción a Azure for Students.
 
 image::https://docs.microsoft.com/es-es/azure/cost-management-billing/manage/media/azurestudents-subscription-disabled/azurestudents-credit-usage.png[uso de los servicios]
+
+== Revisar el saldo (_new_)
+
+Haz clic en _Education_. 
+
+.Azure Education
+image::costs/azure-education.png[role="thumb", align="center", width=60%]
+
+Verás el saldo restante de tu suscripción Azure for Students, así como la fecha de expiración del crédito.
+
+.Azure Education: overview
+image::costs/azure-education-overview.png[role="thumb", align="center", width=60%]
+
 
 == El crédito está a punto de agotarse
 
