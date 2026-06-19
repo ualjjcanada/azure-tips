@@ -458,7 +458,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_facturación_de_logic_apps">3. Facturación de Logic Apps</a></li>
-<li><a href="#_conclusión">4. Conclusión</a></li>
+<li><a href="#_conclusión">4. Conclusión</a>
+<ul class="sectlevel2">
+<li><a href="#_referencias">Referencias</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -484,6 +488,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_pasos_con_logic_apps">2. Pasos con Logic Apps</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Antes de empezar, consulta el <strong>grupo de recursos</strong> de la máquina virtual que quieres encender y apagar automáticamente, así como la <strong>región</strong> donde se encuentra.</p>
+</div>
 <div class="sect2">
 <h3 id="_crear_la_logic_app_consumption">2.1. Crear la Logic app (consumption)</h3>
 <div class="paragraph">
@@ -508,7 +515,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_configurar_el_disparador">2.2. Configurar el disparador</h3>
 <div class="paragraph">
-<p>Una vez creada la Logic App, ve a <em>Development tools &gt; Logic app designer</em>.  Crea un disparador (<em>trigger</em>) de tipo <em>Recurrence</em>, que permite ejecutar la Logic App en un horario específico, por ejemplo, todos los días a las 09:00 horas para encender la VM.</p>
+<p>Una vez creada la Logic App, ve a <em>Development tools &gt; Logic app designer</em>.  Crea un disparador (<em>Add trigger</em>) de tipo <em>Recurrence</em>, que permite ejecutar la Logic App en un horario específico, por ejemplo, todos los días a las 09:00 horas para encender la VM.</p>
 </div>
 <div class="imageblock text-center thumb">
 <div class="content">
@@ -536,7 +543,7 @@ Minutes: 0</code></pre>
 <div class="sect2">
 <h3 id="_añadir_acción_start_vm">2.3. Añadir acción: Start VM</h3>
 <div class="paragraph">
-<p>Haz clic en <em>Add new action</em>.</p>
+<p>Haz clic en <em>Add an action</em>.</p>
 </div>
 <div class="imageblock text-center thumb">
 <div class="content">
@@ -571,14 +578,42 @@ Minutes: 0</code></pre>
 </div>
 <div class="title">Fig. 8. Add new Action: Connection authentication</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>A continuación, selecciona la suscripción y el grupo de recursos donde se encuentra la VM, y luego selecciona la VM que deseas encender.</p>
+<p>Para la segunda Logic app (Stop VM), no es necesario crear una nueva conexión, ya que puedes reutilizar la conexión creada para la primera Logic App.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A continuación, selecciona la <strong>suscripción</strong> y el <strong>grupo de recursos</strong> donde se encuentra la VM, y luego selecciona la <strong>Virtual Machine</strong> que deseas encender.</p>
 </div>
 <div class="imageblock text-center thumb">
 <div class="content">
 <img src="images/automation/logic-app-start-vm-parameters.png" alt="logic app start vm parameters" width="90%">
 </div>
 <div class="title">Fig. 9. Parámetros del disparador</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>No es necesario guardar cambios, se van guardando automáticamente. Al finalizar haz clic en <em>Publish</em> para publicar la Logic App y que empiece a ejecutarse según el horario configurado.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -600,7 +635,7 @@ Minutes: 0</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Solo quedaría verificar que la VM se ha encendido correctamente.</p>
+<p>Solo quedaría verificar manualmente que la VM se ha encendido correctamente.</p>
 </div>
 </td>
 </tr>
@@ -610,7 +645,21 @@ Minutes: 0</code></pre>
 <div class="sect2">
 <h3 id="_nueva_logic_app_stop_vm">2.5. Nueva Logic App: Stop VM</h3>
 <div class="paragraph">
-<p>Crea una nueva Logic app repitiendo los pasos para apagar la VM. En este caso, <code>Stop Virtual Machine</code>, se configura la hora de apagado de la VM, por ejemplo, <strong>todos los días</strong> a las <strong>23:00</strong> horas.</p>
+<p>Crea una nueva Logic app repitiendo los pasos para apagar la VM. En este caso, <code>Deallocate Virtual Machine</code>, se configura la hora de apagado de la VM, por ejemplo, <strong>todos los días</strong> a las <strong>23:00</strong> horas.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La diferencia entre <em>Stop</em> y <em>Deallocate</em> es que <em>Stop</em> detiene la VM pero sigue consumiendo recursos, mientras que <em>Deallocate</em> libera los recursos asociados a la VM, lo que puede resultar en un ahorro de costos. Por lo tanto, se recomienda utilizar <em>Deallocate</em> para apagar la VM automáticamente.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Como resultado deberás tener 2 Logic Apps configuradas, una para encender la VM y otra para apagarla.</p>
@@ -644,12 +693,25 @@ Minutes: 0</code></pre>
 <div class="paragraph">
 <p>De hecho, el ahorro obtenido por apagar diariamente la VM suele ser muchísimo mayor que cualquier coste potencial de Logic Apps, por lo que es una solución muy rentable para gestionar el encendido y apagado automático de máquinas virtuales en Azure.</p>
 </div>
+<div class="sect2">
+<h3 id="_referencias">Referencias</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/es-es/azure/logic-apps/quickstart-create-example-consumption-workflow">Microsoft Learn: Quickstart: Create a consumption logic app workflow in the Azure portal</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/es-es/azure/connectors/connectors-native-recurrence?tabs=consumption">Microsoft Learn: Recurrence trigger for Azure Logic Apps</a></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-19 11:47:00 +0200
+Last updated 2026-06-19 12:13:37 +0200
 </div>
 </div>
 </body>
