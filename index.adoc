@@ -62,7 +62,7 @@ Departamento de Informática. Área de Lenguajes y Sistemas Informáticos. Unive
 . link:docs/azure-cli.html[Usar Azure CLI para interactuar desde el terminal] 
 
 
-. link:docs/azure-troubleshoot.html[Azure troubleshooting: Errores habutuales y soluciones]
+. link:docs/azure-troubleshoot.html[Azure troubleshooting: Errores habituales y soluciones]
 
 // crea una tabla sin borde de 1 fila y dos columnas para añadir los logos de Azure y GitHub
 
