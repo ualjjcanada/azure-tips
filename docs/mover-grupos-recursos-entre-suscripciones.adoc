@@ -98,6 +98,6 @@ image::error-mover-suscripcion-2-no-problem.png[role="thumb", align="center"]
 ****
 Más información: 
 
-- https://docs.microsoft.com/es-es/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal[Traslado de los recursos a una nueva suscripción]
+https://learn.microsoft.com/es-es/azure/azure-resource-manager/management/move-resource-group-and-subscription?tabs=azure-cli#use-the-azure-portal[Traslado de los recursos a una nueva suscripción]
 
 ****
