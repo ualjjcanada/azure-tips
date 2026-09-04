@@ -1,0 +1,82 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Selenium end-to-end testing
+:doctype: book
+:icons: font
+
+////
+///  Copy button on code blocks
+////
+[.doc]
+
+:docinfo: shared-footer
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips. Ahorro máximo en Azure
+
+Herramientas y Métodos en Ingeniería del Software
+Version 1.0, Septiembre-2026.
+Joaquín Cañadas <jjcanada@ual.es>
+
+// Entrar en modo no numerado de apartados
+:numbered!: 
+
+[abstract]
+////
+COLOCA A CONTINUACIÓN EL RESUMEN
+////
+
+== Introducción
+
+Mantener los costes de Azure bajo control es una tarea importante para cualquier usuario de Azure. En este documento se presentan una serie de consejos y trucos para ahorrar costes en Azure, incluyendo el autoapagado y autoencendido de máquinas virtuales, y la optimización del uso de recursos.
+
+
+
+== Autoapagado y autoencendido de máquinas virtuales
+
+Los pasos están descritos en el documento link:auto-encendido-apagado-vm.html[Autoencendido y autoapagado de VM en Azure] (⭐ _recomendado_ ⭐).
+
+== Optimización del uso de recursos
+
+En periodos donde no se estén usando los recursos, por ejemplo en periodos vacacionales, es recomendable apagar los recursos (desasignar las máquinas virtuales) y optimizar el coste residual como el almacenamiendo de discos y las IPs públicas. Se propone la siguiente estrategia práctica para mantener los costes al mínimo:
+
+Cuando no se usen los recursos por un *tiempo corto (dias o pocas semanas)*:
+
+* VM apagada/deallocated
+
+Al volver a necesitar acceso a los recursos, se puede encender la VM y acceder a ella. Esto es útil para periodos cortos de inactividad.
+
+Pero cuando no se usen los recursos por un *tiempo prolongado*:
+
+* VM apagada/deallocated
+* Sin IP pública (eliminarla)
+* link:azure-cli.html#_az_disk_update[Convertir el disco de SO a tipo Standard HDD] (si no se usan, para ahorrar costes)
+
+Y cuando se vuelvan a necesitar acceso:
+
+* Crear IP pública, asociarla
+* Abrir los puertos en NSG si hace falta
+* Mostrar IP
+* link:azure-cli.html#_az_disk_update[Convertir el disco de SO a tipo Standard SSD] (si se necesita rendimiento)
+
+

@@ -1,0 +1,192 @@
+////
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:keywords: Selenium end-to-end testing
+:doctype: book
+:icons: font
+
+////
+///  Copy button on code blocks
+////
+[.doc]
+
+:docinfo: shared-footer
+
+////
+/// activar btn:
+////
+:experimental:
+
+:source-highlighter: rouge
+:rouge-linenums-mode: inline
+
+// :highlightjsdir: ./highlight
+
+:figure-caption: Fig.
+:imagesdir: images
+
+////
+Nombre y título del trabajo
+////
+= Azure Tips. Gestión temporal de IPs públicas
+
+Herramientas y Métodos en Ingeniería del Software
+Version 1.0, Septiembre-2026.
+Joaquín Cañadas <jjcanada@ual.es>
+
+// Entrar en modo no numerado de apartados
+:numbered!: 
+
+[abstract]
+////
+COLOCA A CONTINUACIÓN EL RESUMEN
+////
+
+== Introducción
+
+Las IPs públicas de tipo *Standard SKU* en Azure son siempre *estáticas*, por lo que permanecen reservadas aunque la máquina virtual esté apagada y desasignada. Esto implica que el recurso IP pública sigue existiendo y puede generar cargos.
+
+Una estrategia útil para entornos de laboratorio consiste en:
+
+- Crear la IP pública únicamente cuando se necesite acceder a la VM.
+- Asociar la IP a la interfaz de red de la VM.
+- Eliminar posteriormente la IP pública para evitar cargos innecesarios.
+
+Además, podemos restaurar automáticamente el mismo nombre DNS público cada vez que recreamos la IP.
+
+== Script para crear y asociar una IP pública
+
+El siguiente script Bash:
+
+- crea una IP pública,
+- asigna un nombre DNS,
+- la asocia automáticamente a la VM,
+- y muestra la IP y el DNS resultantes.
+
+.azure-temp-ip.sh
+[source,bash]
+----
+#!/usr/bin/env bash
+set -e
+
+RG="mi-grupo-recursos"
+VM="mi-vm"
+LOCATION="westeurope"
+
+PUBLIC_IP_NAME="${VM}-ip"
+DNS_NAME="mi-vm-ual"
+
+IP_CONFIG_NAME="ipconfig1"
+
+ACTION="$1"
+
+NIC_ID=$(az vm show -g "$RG" -n "$VM" --query "networkProfile.networkInterfaces[0].id" -o tsv)
+NIC_NAME=$(basename "$NIC_ID")
+
+if [ "$ACTION" = "attach" ]; then
+
+  echo "Creando IP pública con DNS..."
+
+  az network public-ip create \
+    -g "$RG" \
+    -n "$PUBLIC_IP_NAME" \
+    --location "$LOCATION" \
+    --sku Standard \
+    --allocation-method Static \
+    --zone 1 \
+    --dns-name "$DNS_NAME"
+
+  echo "Asociando IP pública a la VM..."
+
+  az network nic ip-config update \
+    -g "$RG" \
+    --nic-name "$NIC_NAME" \
+    -n "$IP_CONFIG_NAME" \
+    --public-ip-address "$PUBLIC_IP_NAME"
+
+  FQDN=$(az network public-ip show \
+    -g "$RG" \
+    -n "$PUBLIC_IP_NAME" \
+    --query "dnsSettings.fqdn" \
+    -o tsv)
+
+  IP=$(az network public-ip show \
+    -g "$RG" \
+    -n "$PUBLIC_IP_NAME" \
+    --query "ipAddress" \
+    -o tsv)
+
+  echo "IP pública: $IP"
+  echo "DNS: $FQDN"
+
+elif [ "$ACTION" = "detach" ]; then
+
+  echo "Desasociando IP pública..."
+
+  az network nic ip-config update \
+    -g "$RG" \
+    --nic-name "$NIC_NAME" \
+    -n "$IP_CONFIG_NAME" \
+    --remove publicIpAddress
+
+  echo "Eliminando IP pública..."
+
+  az network public-ip delete \
+    -g "$RG" \
+    -n "$PUBLIC_IP_NAME"
+
+  echo "IP pública y DNS eliminados."
+
+else
+
+  echo "Uso:"
+  echo "  $0 attach"
+  echo "  $0 detach"
+  exit 1
+
+fi
+----
+
+
+== Crear y asociar una IP pública
+
+Ejecutar:
+
+ ./azure-temp-ip.sh attach
+
+Ejemplo de salida:
+
+----
+Creando IP pública con DNS...
+Asociando IP pública a la VM...
+IP pública: 20.105.33.12
+DNS: mi-vm-ual.westeurope.cloudapp.azure.com
+----
+
+
+
+== Eliminar la IP pública
+
+Cuando ya no sea necesaria la conexión remota:
+
+ ./azure-temp-ip.sh detach
+
+Ejemplo de salida:
+
+----
+Desasociando IP pública...
+Eliminando IP pública...
+IP pública y DNS eliminados.
+----
+
+
+IMPORTANT: Al eliminar la IP pública también desaparece temporalmente el nombre DNS asociado. Sin embargo, si posteriormente se recrea la IP usando el mismo parámetro `--dns-name`, Azure restaurará el mismo nombre DNS siempre que siga disponible en la región.
+
+WARNING: El nombre DNS debe ser único dentro de la región Azure seleccionada. Mientras la IP pública esté eliminada, otro usuario podría ocupar ese nombre DNS.
+
+
+
