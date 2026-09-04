@@ -292,9 +292,11 @@ Por ello puede ser recomendable cambiar su tipo de SSD a HDD, o su tamaño, para
 
 === az disk list
 
+Listar todos los discos en un grupo de recursos. Sustituye `MyResourceGroupNAME` por el nombre de tu grupo de recursos.
+
 [source,bash]
 ----
-az disk list -o table
+az disk list -o table -g MyResourceGroupNAME
 ----
 
 .Listado de discos en forma de tabla
@@ -304,7 +306,7 @@ Para ver solamente los discos que son SSD:
 
 [source,bash]
 ----
-az disk list --query "[?sku.name=='StandardSSD_LRS']" -o table
+az disk list -g MyResourceGroupNAME --query "[?sku.name=='StandardSSD_LRS']" -o table
 ----
 
 .Listado de discos tipo Standard SSD - forma de tabla
@@ -319,7 +321,7 @@ Para cambiar de tipo de disco la *máquina virtual debe está desasignada*.
 
 El comando `az disk update` permite cambiar el tipo de disco y el tamaño. Tendrá los siguietnes parámetros:
 
-- `--sku`: el tipo de disco (Standard_LRS, StandardSSD_LRS, Premium_LRS)
+- `--sku`: el tipo de disco (`Standard_LRS`, StandardSSD_LRS, Premium_LRS)
 - `--name`: el nombre del disco
 - `--resource-group`, `-g`: el grupo de recursos
 - `--size-gb`: el tamaño del disco
@@ -335,6 +337,9 @@ az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9
 ====
 Solo se puede cambiar de tipo de disco *dos veces al día*.
 Tampoco se permite reducir el tamaño del disco, por posible pérdida de datos:  `Reducing disk/snapshot size is not supported in Azure to prevent data loss.`
+
+*Standard HDD OS disks* will be retired on September 8, 2028. For new OS disks, use Standard SSD or Premium SSD instead. Migrate existing Standard HDD OS disks to Standard SSD or Premium SSD. https://go.microsoft.com/fwlink/?LinkId=2338468[Click to learn more]
+
 ====
 
 

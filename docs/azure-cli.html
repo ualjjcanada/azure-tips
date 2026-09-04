@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.23">
+<meta name="generator" content="Asciidoctor.js 4.0.6">
 <meta name="keywords" content="Selenium end-to-end testing">
 <title>Azure Tips. Azure CLI</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CNoto+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
 /* Uncomment the following line when using as a custom stylesheet */
@@ -95,10 +95,10 @@ dl dd{margin-bottom:1.25em}
 blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
 blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 @media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
-h1{font-size:2.75em}
-h2{font-size:2.3125em}
-h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
-h4{font-size:1.4375em}}
+  h1{font-size:2.75em}
+  h2{font-size:2.3125em}
+  h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+  h4{font-size:1.4375em}}
 table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
@@ -117,7 +117,6 @@ h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title str
 :not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
-pre>code{display:block}
 pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
 em em{font-style:normal}
 strong strong{font-weight:400}
@@ -162,21 +161,21 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toc a:active{text-decoration:underline}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
-body.toc2{padding-left:15em;padding-right:0}
-body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
-#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
-#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
-#toc.toc2>ul{font-size:.9em;margin-bottom:0}
-#toc.toc2 ul ul{margin-left:0;padding-left:1em}
-#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
-body.toc2.toc-right{padding-left:0;padding-right:15em}
-body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+  body.toc2{padding-left:15em;padding-right:0}
+  body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+  #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+  #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+  #toc.toc2>ul{font-size:.9em;margin-bottom:0}
+  #toc.toc2 ul ul{margin-left:0;padding-left:1em}
+  #toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+  body.toc2.toc-right{padding-left:0;padding-right:15em}
+  body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
 @media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
-#toc.toc2{width:20em}
-#toc.toc2 #toctitle{font-size:1.375em}
-#toc.toc2>ul{font-size:.95em}
-#toc.toc2 ul ul{padding-left:1.25em}
-body.toc2.toc-right{padding-left:0;padding-right:20em}}
+  #toc.toc2{width:20em}
+  #toc.toc2 #toctitle{font-size:1.375em}
+  #toc.toc2>ul{font-size:.95em}
+  #toc.toc2 ul ul{padding-left:1.25em}
+  body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
@@ -185,7 +184,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
 @media screen and (min-width:768px){#content{margin-bottom:1.25em}
-.sect1{padding-bottom:1.25em}}
+  .sect1{padding-bottom:1.25em}}
 .sect1:last-child{padding-bottom:0}
 .sect1+.sect1{border-top:1px solid #e7e7e9}
 #content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
@@ -220,6 +219,7 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
 .literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
 .listingblock>.content{position:relative}
+.listingblock pre>code{display:block}
 .listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
 .listingblock:hover code[data-lang]::before{display:block}
 .listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
@@ -399,156 +399,42 @@ p{margin-bottom:1.25rem}
 .print-only{display:none!important}
 @page{margin:1.25cm .75cm}
 @media print{*{box-shadow:none!important;text-shadow:none!important}
-html{font-size:80%}
-a{color:inherit!important;text-decoration:underline!important}
-a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
-a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
-abbr[title]{border-bottom:1px dotted}
-abbr[title]::after{content:" (" attr(title) ")"}
-pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
-thead{display:table-header-group}
-svg{max-width:100%}
-p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
-h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
-#header,#content,#footnotes,#footer{max-width:none}
-#toc,.sidebarblock,.exampleblock>.content{background:none!important}
-#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
-body.book #header{text-align:center}
-body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
-body.book #header .details{border:0!important;display:block;padding:0!important}
-body.book #header .details span:first-child{margin-left:0!important}
-body.book #header .details br{display:block}
-body.book #header .details br+span::before{content:none!important}
-body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
-body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
-.listingblock code[data-lang]::before{display:block}
-#footer{padding:0 .9375em}
-.hide-on-print{display:none!important}
-.print-only{display:block!important}
-.hide-for-print{display:none!important}
-.show-for-print{display:inherit!important}}
+  html{font-size:80%}
+  a{color:inherit!important;text-decoration:underline!important}
+  a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+  a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+  abbr[title]{border-bottom:1px dotted}
+  abbr[title]::after{content:" (" attr(title) ")"}
+  pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+  thead{display:table-header-group}
+  svg{max-width:100%}
+  p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+  h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+  #header,#content,#footnotes,#footer{max-width:none}
+  #toc,.sidebarblock,.exampleblock>.content{background:none!important}
+  #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+  body.book #header{text-align:center}
+  body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+  body.book #header .details{border:0!important;display:block;padding:0!important}
+  body.book #header .details span:first-child{margin-left:0!important}
+  body.book #header .details br{display:block}
+  body.book #header .details br+span::before{content:none!important}
+  body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+  body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+  .listingblock code[data-lang]::before{display:block}
+  #footer{padding:0 .9375em}
+  .hide-on-print{display:none!important}
+  .print-only{display:block!important}
+  .hide-for-print{display:none!important}
+  .show-for-print{display:inherit!important}}
 @media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
-.sect1{padding:0!important}
-.sect1+.sect1{border:0}
-#footer{background:none}
-#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+  .sect1{padding:0!important}
+  .sect1+.sect1{border:0}
+  #footer{background:none}
+  #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-pre.rouge table td { padding: 5px; }
-pre.rouge table pre { margin: 0; }
-pre.rouge, pre.rouge .w {
-  color: #24292f;
-  background-color: #f6f8fa;
-}
-pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
-  color: #cf222e;
-}
-pre.rouge .gr {
-  color: #f6f8fa;
-}
-pre.rouge .gd {
-  color: #82071e;
-  background-color: #ffebe9;
-}
-pre.rouge .nb {
-  color: #953800;
-}
-pre.rouge .nc {
-  color: #953800;
-}
-pre.rouge .no {
-  color: #953800;
-}
-pre.rouge .nn {
-  color: #953800;
-}
-pre.rouge .sr {
-  color: #116329;
-}
-pre.rouge .na {
-  color: #116329;
-}
-pre.rouge .nt {
-  color: #116329;
-}
-pre.rouge .gi {
-  color: #116329;
-  background-color: #dafbe1;
-}
-pre.rouge .kc {
-  color: #0550ae;
-}
-pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
-  color: #0550ae;
-}
-pre.rouge .sb {
-  color: #0550ae;
-}
-pre.rouge .bp {
-  color: #0550ae;
-}
-pre.rouge .ne {
-  color: #0550ae;
-}
-pre.rouge .nl {
-  color: #0550ae;
-}
-pre.rouge .py {
-  color: #0550ae;
-}
-pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
-  color: #0550ae;
-}
-pre.rouge .o, pre.rouge .ow {
-  color: #0550ae;
-}
-pre.rouge .gh {
-  color: #0550ae;
-  font-weight: bold;
-}
-pre.rouge .gu {
-  color: #0550ae;
-  font-weight: bold;
-}
-pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
-  color: #0a3069;
-}
-pre.rouge .nd {
-  color: #8250df;
-}
-pre.rouge .nf, pre.rouge .fm {
-  color: #8250df;
-}
-pre.rouge .err {
-  color: #f6f8fa;
-  background-color: #82071e;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
-  color: #6e7781;
-}
-pre.rouge .gl {
-  color: #6e7781;
-}
-pre.rouge .gt {
-  color: #6e7781;
-}
-pre.rouge .ni {
-  color: #24292f;
-}
-pre.rouge .si {
-  color: #24292f;
-}
-pre.rouge .ge {
-  color: #24292f;
-  font-style: italic;
-}
-pre.rouge .gs {
-  color: #24292f;
-  font-weight: bold;
-}
-</style>
 </head>
 <body class="book toc2 toc-right doc">
 <div id="header">
@@ -614,7 +500,7 @@ Joaquín Cañadas &lt;<a href="mailto:jjcanada@ual.es">jjcanada@ual.es</a>&gt;</
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">choco <span class="nb">install </span>azure-cli <span class="nt">-y</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">choco install azure-cli -y</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -654,7 +540,7 @@ En caso de dudas, consulta la documentación oficial: <a href="https://learn.mic
 <h3 id="_az_login">az login</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az login</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az login</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -671,7 +557,7 @@ En caso de dudas, consulta la documentación oficial: <a href="https://learn.mic
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az login <span class="nt">--use-device-code</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az login --use-device-code</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -679,7 +565,7 @@ En caso de dudas, consulta la documentación oficial: <a href="https://learn.mic
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">To sign <span class="k">in</span>, use a web browser to open https://microsoft.com/devicelogin
+<pre class="highlight"><code class="language-bash" data-lang="bash">To sign in, use a web browser to open https://microsoft.com/devicelogin
 and enter the code XXXX-XXXX</code></pre>
 </div>
 </div>
@@ -703,7 +589,7 @@ En caso de problemas de login, consulta la documentación oficial: <a href="http
 <h3 id="_az_account_show">az account show</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az account show</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az account show</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -723,7 +609,7 @@ En caso de problemas de login, consulta la documentación oficial: <a href="http
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az <span class="nb">logout</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az logout</code></pre>
 </div>
 </div>
 </div>
@@ -749,7 +635,7 @@ En caso de problemas de login, consulta la documentación oficial: <a href="http
 <h3 id="_listar_todas_las_regiones">Listar todas las regiones</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az account list-locations <span class="nt">-o</span> table</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az account list-locations -o table</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -757,7 +643,7 @@ En caso de problemas de login, consulta la documentación oficial: <a href="http
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az account list-locations <span class="nt">--query</span> <span class="s2">"[].{Region:name,DisplayName:displayName}"</span> <span class="nt">-o</span> table</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az account list-locations --query "[].{Region:name,DisplayName:displayName}" -o table</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -765,7 +651,7 @@ En caso de problemas de login, consulta la documentación oficial: <a href="http
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az account list-locations <span class="nt">--query</span> <span class="s2">"[?metadata.regionType=='Physical'].{Region:name,DisplayName:displayName}"</span> <span class="nt">-o</span> table</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az account list-locations --query "[?metadata.regionType=='Physical'].{Region:name,DisplayName:displayName}" -o table</code></pre>
 </div>
 </div>
 </div>
@@ -783,7 +669,7 @@ En caso de problemas de login, consulta la documentación oficial: <a href="http
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="nv">$ $SUB_ID</span> <span class="o">=</span> az account show <span class="nt">--query</span> <span class="nb">id</span> <span class="nt">-o</span> tsv</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ $SUB_ID = az account show --query id -o tsv</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -791,7 +677,7 @@ En caso de problemas de login, consulta la documentación oficial: <a href="http
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="nv">$ </span><span class="nb">export </span><span class="nv">SUB_ID</span><span class="o">=</span><span class="si">$(</span>az account show <span class="nt">--query</span> <span class="nb">id</span> <span class="nt">-o</span> tsv<span class="si">)</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ export SUB_ID=$(az account show --query id -o tsv)</code></pre>
 </div>
 </div>
 <div class="olist arabic">
@@ -803,7 +689,7 @@ En caso de problemas de login, consulta la documentación oficial: <a href="http
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="nv">$ </span>az policy assignment list <span class="nt">--query</span> <span class="s2">"[?parameters.listOfAllowedLocations].parameters.listOfAllowedLocations.value[]"</span>   <span class="nt">-o</span> tsv</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ az policy assignment list --query "[?parameters.listOfAllowedLocations].parameters.listOfAllowedLocations.value[]"   -o tsv</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -831,7 +717,7 @@ swedencentral</pre>
 <h3 id="_az_vm_list">az vm list</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az vm list <span class="nt">-d</span> <span class="nt">-o</span> table</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm list -d -o table</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -845,7 +731,7 @@ swedencentral</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az vm list <span class="nt">-d</span> <span class="nt">--query</span> <span class="s2">"[?powerState=='VM running']"</span> <span class="nt">-o</span> table</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm list -d --query "[?powerState=='VM running']" -o table</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -853,7 +739,7 @@ swedencentral</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az resource list <span class="nt">--resource-type</span> <span class="s2">"Microsoft.Compute/virtualMachines"</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az resource list --resource-type "Microsoft.Compute/virtualMachines"</code></pre>
 </div>
 </div>
 </div>
@@ -864,7 +750,7 @@ swedencentral</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az vm start <span class="nt">-g</span> ResourceGroupNAME <span class="nt">-n</span> MyVmNAME <span class="nt">--no-wait</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm start -g ResourceGroupNAME -n MyVmNAME --no-wait</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -875,7 +761,7 @@ swedencentral</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az vm start <span class="nt">-g</span> HMIS23-SONARQUBE_GROUP <span class="nt">-n</span> hmis23-sonarqube <span class="nt">--no-wait</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm start -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -883,7 +769,7 @@ swedencentral</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az vm list <span class="nt">-d</span> <span class="nt">-o</span> table</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm list -d -o table</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -900,7 +786,7 @@ swedencentral</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az vm stop <span class="nt">-g</span> ResourceGroupNAME <span class="nt">-n</span> MyVmNAME <span class="nt">--no-wait</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm stop -g ResourceGroupNAME -n MyVmNAME --no-wait</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -920,8 +806,8 @@ Una máquina parada (stopped) sigue asignada, y por tanto <strong>se aplican car
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az vm stop <span class="nt">-g</span> HMIS23-SONARQUBE_GROUP <span class="nt">-n</span> hmis23-sonarqube <span class="nt">--no-wait</span>
-az vm stop <span class="nt">-g</span> HMIS23-JENKINS_GROUP <span class="nt">-n</span> hmis23-jenkins <span class="nt">--no-wait</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm stop -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+az vm stop -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -938,7 +824,7 @@ az vm stop <span class="nt">-g</span> HMIS23-JENKINS_GROUP <span class="nt">-n</
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az vm deallocate <span class="nt">-g</span> MyResourceGroupNAME <span class="nt">-n</span> MyVmNAME <span class="nt">--no-wait</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm deallocate -g MyResourceGroupNAME -n MyVmNAME --no-wait</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -946,8 +832,8 @@ az vm stop <span class="nt">-g</span> HMIS23-JENKINS_GROUP <span class="nt">-n</
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az vm deallocate <span class="nt">-g</span> HMIS23-SONARQUBE_GROUP <span class="nt">-n</span> hmis23-sonarqube <span class="nt">--no-wait</span>
-az vm deallocate <span class="nt">-g</span> HMIS23-JENKINS_GROUP <span class="nt">-n</span> hmis23-jenkins <span class="nt">--no-wait</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az vm deallocate -g HMIS23-SONARQUBE_GROUP -n hmis23-sonarqube --no-wait
+az vm deallocate -g HMIS23-JENKINS_GROUP -n hmis23-jenkins --no-wait</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -982,9 +868,12 @@ Para apagar una VM <strong>no es necesario pasar por el estado de parada (stoppe
 </div>
 <div class="sect2">
 <h3 id="_az_disk_list">az disk list</h3>
+<div class="paragraph">
+<p>Listar todos los discos en un grupo de recursos. Sustituye <code>MyResourceGroupNAME</code> por el nombre de tu grupo de recursos.</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az disk list <span class="nt">-o</span> table</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az disk list -o table -g MyResourceGroupNAME</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -998,7 +887,7 @@ Para apagar una VM <strong>no es necesario pasar por el estado de parada (stoppe
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az disk list <span class="nt">--query</span> <span class="s2">"[?sku.name=='StandardSSD_LRS']"</span> <span class="nt">-o</span> table</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az disk list -g MyResourceGroupNAME --query "[?sku.name=='StandardSSD_LRS']" -o table</code></pre>
 </div>
 </div>
 <div class="imageblock text-center thumb">
@@ -1030,7 +919,7 @@ Para apagar una VM <strong>no es necesario pasar por el estado de parada (stoppe
 <div class="ulist">
 <ul>
 <li>
-<p><code>--sku</code>: el tipo de disco (Standard_LRS, StandardSSD_LRS, Premium_LRS)</p>
+<p><code>--sku</code>: el tipo de disco (<code>Standard_LRS</code>, StandardSSD_LRS, Premium_LRS)</p>
 </li>
 <li>
 <p><code>--name</code>: el nombre del disco</p>
@@ -1048,7 +937,7 @@ Para apagar una VM <strong>no es necesario pasar por el estado de parada (stoppe
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">az disk update <span class="nt">--sku</span> Standard_LRS <span class="nt">--name</span> hmis24-jjcanada-gitlab_disk1_5369c842c9664d5aa3df6f61448a694e 	   <span class="nt">-g</span> HMS24-JJCANADA-GITLAB  <span class="nt">--no-wait</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">az disk update --sku Standard_LRS --name hmis24-jjcanada-gitlab_disk1_5369c842c9664d5aa3df6f61448a694e 	   -g HMS24-JJCANADA-GITLAB  --no-wait</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -1062,6 +951,9 @@ Para apagar una VM <strong>no es necesario pasar por el estado de parada (stoppe
 <p>Solo se puede cambiar de tipo de disco <strong>dos veces al día</strong>.
 Tampoco se permite reducir el tamaño del disco, por posible pérdida de datos:  <code>Reducing disk/snapshot size is not supported in Azure to prevent data loss.</code></p>
 </div>
+<div class="paragraph">
+<p><strong>Standard HDD OS disks</strong> will be retired on September 8, 2028. For new OS disks, use Standard SSD or Premium SSD instead. Migrate existing Standard HDD OS disks to Standard SSD or Premium SSD. <a href="https://go.microsoft.com/fwlink/?LinkId=2338468">Click to learn more</a></p>
+</div>
 </td>
 </tr>
 </table>
@@ -1072,7 +964,7 @@ Tampoco se permite reducir el tamaño del disco, por posible pérdida de datos: 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-04-14 12:21:16 +0200
+Last updated 2026-09-04 13:39:01 +0200
 </div>
 </div>
 <style>
